@@ -1,0 +1,51 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-6 col-lg-4">
+    <div class="text-end mb-2">
+      <app-language-switcher></app-language-switcher>
+    </div>
+    <div class="card">
+      <div class="card-header text-center">
+        <h2>{{ 'SIGNUP.TITLE' | translate }}</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <app-input-field id="nickname" label="SIGNUP.NICKNAME" formControlName="nickname" title="SIGNUP.NICKNAME"
+              [control]="signupForm.get('nickname')" [submitted]="submitted()" />
+          </div>
+
+          <div class="mb-3">
+            <app-input-field id="email" label="SIGNUP.EMAIL" formControlName="email" title="SIGNUP.EMAIL"
+              [control]="signupForm.get('email')" [submitted]="submitted()" />
+          </div>
+
+          <div class="mb-3">
+            <app-input-field id="password" type="password" label="SIGNUP.PASSWORD" formControlName="password"
+              title="SIGNUP.PASSWORD" [control]="signupForm.get('password')" [submitted]="submitted()" />
+          </div>
+
+          <div class="mb-3">
+            <app-input-field id="confirmPassword" type="password" label="SIGNUP.CONFIRM_PASSWORD"
+              formControlName="confirmPassword" title="SIGNUP.CONFIRM_PASSWORD"
+              [control]="signupForm.get('confirmPassword')" [submitted]="submitted()" />
+          </div>
+
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary" [disabled]="loading || signupForm.invalid">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+              {{ 'SIGNUP.SUBMIT' | translate }}
+            </button>
+          </div>
+
+          <div *ngIf="errorMessage" class="mt-3 alert alert-danger">{{ errorMessage }}</div>
+        </form>
+      </div>
+      <div class="card-footer text-center">
+        <p class="mb-0">
+          {{ 'SIGNUP.HAVE_ACCOUNT' | translate }}
+          <a routerLink="/login">{{ 'SIGNUP.LOGIN' | translate }}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

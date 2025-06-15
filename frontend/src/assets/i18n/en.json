@@ -1,0 +1,108 @@
+{
+  "COMMON": {
+    "LOADING": "Loading...",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete"
+  },
+  "LOGIN": {
+    "TITLE": "Login",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "PASSWORD": "Password",
+    "PASSWORD_PLACEHOLDER": "Enter your password",
+    "SUBMIT": "Login",
+    "NO_ACCOUNT": "Don't have an account?",
+    "SIGNUP": "Sign up",
+    "ERROR_MESSAGE": "Invalid email or password",
+    "REMEMBER_PLACEHOLDER": "",
+    "REMEMBER": "Remember Me"
+  },
+  "SIGNUP": {
+    "TITLE": "Sign Up",
+    "NICKNAME": "Nickname",
+    "NICKNAME_PLACEHOLDER": "Enter your nickname",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "PASSWORD": "Password",
+    "PASSWORD_PLACEHOLDER": "Enter your password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Confirm your password",
+    "SUBMIT": "Sign Up",
+    "HAVE_ACCOUNT": "Already have an account?",
+    "LOGIN": "Login",
+    "PASSWORDS_DONT_MATCH": "Passwords don't match",
+    "EMAIL_IN_USE": "Email is already in use"
+  },
+  "NAV": {
+    "TITLE": "Fleet Manager",
+    "SPACESHIPS": "My Spaceships",
+    "ADD_SPACESHIP": "Add Spaceship",
+    "USERS": "Guild Members",
+    "LOGOUT": "Logout"
+  },
+  "SPACESHIP_LIST": {
+    "TITLE": "My Spaceships",
+    "ADD_NEW": "Add New Spaceship",
+    "NO_SPACESHIPS": "You don't have any spaceships yet. Click 'Add New Spaceship' to create one.",
+    "NAME": "Name",
+    "NICKNAME": "Nickname",
+    "QUANTITY": "Quantity",
+    "ACTIONS": "Actions"
+  },
+  "MODAL": {
+    "CANCEL": "Cancel",
+    "CONFIRM": "Confirm"
+  },
+  "SPACESHIP_FORM": {
+    "TITLE": "Add New Spaceship",
+    "NAME": "Spaceship Name",
+    "NAME_PLACEHOLDER": "Enter spaceship name",
+    "NICKNAME": "Nickname",
+    "NICKNAME_PLACEHOLDER": "Some nickname of your ship",
+    "NICKNAME_TITLE": "Nick of your ship",
+    "QUANTITY": "Quantity",
+    "QUANTITY_PLACEHOLDER": "",
+    "SUBMIT": "Save Spaceship",
+    "ERROR_MESSAGE": "Failed to save spaceship"
+  },
+  "USER_LIST": {
+    "TITLE": "Guild Members",
+    "NO_USERS": "No members registered at our guild",
+    "NICKNAME": "Nickname",
+    "EMAIL": "E-mail",
+    "AUTHORIZED": "Authorized",
+    "AUTHORIZE": "Authorize",
+    "UNAUTHORIZED": "Unauthorized",
+    "UNAUTHORIZE": "Block",
+    "ACTIONS": "Actions",
+    "DELETE_OPTION": "User deletion!",
+    "DELETE_OPTION_DESCRIPTION": "You are about to delete the user and remove their fleet. Are you sure?",
+    "ALLOW_OPTION": "Confirm the action?",
+    "ALLOW_OPTION_DESCRIPTION": "Do you want to authorize this citizen to log into the system?"
+  },
+  "VALIDATE": {
+    "REQUIRED": "Required",
+    "MINIMUM": "Minimum length",
+    "MAXIMUM": "Maximum length",
+    "EMAIL": "Email invalid",
+    "PATTERN": "Pattern invalid"
+  },
+  "ERRO": {
+    "PAGE": {
+      "RETURN": "Back to home page",
+      "RETURN_LOGIN": "Back to login page",
+      "UNAUTHORIZED": "Unauthorized Access",
+      "UNAUTHORIZED_DESCRIPTION": "You do not have permission to access this page.",
+      "NOT_FOUND": "Page not found",
+      "NOT_FOUND_DESCRIPTION": "The page you are looking for does not exist or has moved.",
+      "WAIT_APPROVAL": "User awaiting approval",
+      "WAIT_APPROVAL_DESCRIPTION": "You have already registered, just wait for one of the administrators to grant access. If it takes a while, talk to an administrator on discord"
+    },
+    "PASSOWRD": {
+      "SMALL": "Invalid password"
+    },
+    "EMAIL": {
+      "EXISTS": "Email already exists"
+    }
+  }
+}
