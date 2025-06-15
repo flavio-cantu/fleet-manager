@@ -1,6 +1,26 @@
 .angular
 .idea
 
+# Arquivos de cache e plugins
+**/.terraformrc
+**/terraform.rc
+**/.terraform.d/
+**/.terraform.d/plugin-cache/
+
+# Arquivos específicos de provedores
+**/.terraform/providers/
+**/terraform.tfstate.d/
+
+# Arquivos de módulos baixados
+**/.terraform/modules/
+
+# Arquivos de backend local
+**/.terraform/backup/
+
+# Arquivos temporários
+**/.terraform.temp/
+**/tmp/
+
 # Logs
 logs
 *.log
