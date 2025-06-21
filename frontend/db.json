@@ -2,7 +2,7 @@
   "oauth": [
     {
       "id": 1,
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGF3cy5jb20iLCJpYXQiOjE3NTAwMDc2MTcsImV4cCI6MTc1MDAxMTIxNywic3ViIjoiMSJ9.3ZR6QzJ1P4gWIHmEKZiASIJiYtTqkCBjHBG3M9rw9ko"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGF3cy5jb20iLCJpYXQiOjE3NTA1MjcxNTMsImV4cCI6MTc1MDUzMDc1Mywic3ViIjoiMSJ9.nBbimXiC1pKIHtZCA_j1VpuACehRCwn4TvytjLt5qoU"
     },
     {
       "id": 2,
@@ -16,7 +16,8 @@
       "nickname": "Admin",
       "id": 1,
       "authorized": true,
-      "admin": true
+      "admin": true,
+      "accessToken": "KCOH-CAFH-SBXC-A98O-98ZW-RE"
     },
     {
       "email": "membro@aws.com",

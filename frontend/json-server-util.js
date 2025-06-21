@@ -1,4 +1,3 @@
-// auth-middlewares.js
 module.exports = {
     // Middleware para verificar o token
     verifyToken: (server) => (req, res, next) => {
@@ -12,6 +11,21 @@ module.exports = {
         const auth = server.db.get('oauth').filter({ token }).value();
 
         if (auth.length !== 1) {
+            return res.status(403).json({ error: 'ERRO.USER.NOTSIGNED' });
+        }
+
+        next();
+    },
+    verifyPluginToken: (server) => (req, res, next) => {
+        const authHeader = req.headers.authorization;
+
+        if (!authHeader) {
+            return res.status(401).json({ error: 'ERRO.USER.NOTSIGNED' });
+        }
+
+        const user = server.db.get('users').filter({ accessToken: authHeader }).value();
+
+        if (user.length !== 1) {
             return res.status(403).json({ error: 'ERRO.USER.NOTSIGNED' });
         }
 

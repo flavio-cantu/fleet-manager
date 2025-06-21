@@ -24,4 +24,8 @@ export class UserService {
   allowUser(allow: boolean, id: string): Observable<boolean> {
     return this.apiService.put<boolean>(`${this.endpoint}/${id}/allow`, { allow: allow });
   }
+
+  downloadPlugin() {
+    return this.apiService.download(`download`);
+  }
 }

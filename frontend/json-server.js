@@ -1,6 +1,13 @@
 const jsonServer = require('json-server');
 const auth = require('json-server-auth');
+const tmp = require('tmp');
+const path = require('path');
+const fs = require('fs-extra');
+const archiver = require('archiver');
+
 const util = require('./json-server-util');
+const config = require('./json-server-confg.json');
+
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
@@ -52,6 +59,95 @@ server.get('/fleet',
         userId = util.getIdUser(authHeader)
         const userFleet = server.db.get('fleet').filter({ userId: userId }).value();
         return res.status(200).json(userFleet);
+
+    });
+
+server.post('/download',
+    util.verifyToken(server),
+    (req, res, next) => {
+        try {
+            const authHeader = req.headers.authorization;
+            const idUser = util.getIdUser(authHeader);
+            const accessToken = generateAlphaNumericSerial(22);
+
+            server.db.get('users')
+                .find({ id: parseInt(idUser) })
+                .assign({ accessToken: accessToken })
+                .write();
+
+            const inputJson = {
+                url: config.path,
+                token: accessToken
+            };
+
+            const tempDir = tmp.dirSync({ unsafeCleanup: true }).name;
+            const templateDir = path.join(__dirname, 'plugin/chrome');
+
+            const configPath = path.join(tempDir, 'config.json');
+            fs.writeJson(configPath, inputJson, { spaces: 2 });
+
+            const zipPath = path.join(tempDir, 'extension.zip');
+            zipFiles(zipPath, [
+                configPath,
+                path.join(templateDir, 'background.js'),
+                path.join(templateDir, 'content-script.js'),
+                path.join(templateDir, 'manifest.json'),
+            ], () => {
+                res.setHeader('Content-Type', 'application/zip');
+                res.setHeader('Content-Disposition', 'attachment; filename="extension.zip"');
+                res.sendFile(zipPath, () => {
+                    fs.remove(tempDir); // limpeza
+                });
+            });
+
+        } catch (error) {
+            console.error('Erro ao gerar zip:', error);
+            res.status(500).json({ error: 'Erro interno ao gerar o arquivo' });
+        }
+    });
+
+server.post('/hangar',
+    util.verifyPluginToken(server),
+    (req, res, next) => {
+        const authHeader = req.headers.authorization;
+        const user = server.db.get('users').filter({ accessToken: authHeader }).value();
+
+        try {
+            const result = [];
+
+            const response = req.body;
+            response.forEach(entitie => {
+                Object.keys(entitie).forEach(key => {
+                    const group = entitie[key];
+                    Object.keys(group).forEach(row => {
+                        const pack = group[row];
+                        if (pack && pack.place && pack.place == 'hangar') {
+                            //if (row == '10235266') {
+                            pack['items'].forEach(item => {
+                                if (item.kind == 'Ship') {
+                                    result.push({
+                                        "name": item.name, "shipname": item.name, "type": "ship"
+                                    });
+                                }
+                            });
+                            //}
+                        }
+                    });
+                });
+            })
+
+            server.db.get('users')
+                .find({ id: parseInt(id) })
+                .assign({ ccu: result })
+                .write();
+
+            res.status(200).json('OK')
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+
+
 
     });
 
@@ -114,6 +210,7 @@ server.listen(3000, () => {
     console.log('JSON Server com auth rodando em http://localhost:3000');
 });
 
+//Layout do fleetviewer.json[{"name":"atls","shipname":"","type":"ship"}]
 
 
 function parseMessage(res, path) {
@@ -152,4 +249,30 @@ function parseMessage(res, path) {
         }
         return originalSend.call(this, body);
     };
+}
+
+function zipFiles(outputPath, files, onClose) {
+    const output = fs.createWriteStream(outputPath);
+    const archive = archiver("zip", { zlib: { level: 9 } });
+
+    output.on('close', onClose);
+    archive.on("error", function (err) {
+        throw err;
+    });
+
+    archive.pipe(output);
+    files.forEach((file) => {
+        archive.file(file, { name: file.split("/").pop() });
+    });
+    archive.finalize();
+}
+
+function generateAlphaNumericSerial(length = 8) {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let serial = '';
+    for (let i = 0; i < length; i++) {
+        serial += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    // Formata como XXYY-ZZWW se length = 8
+    return serial.match(/.{1,4}/g).join('-');
 }

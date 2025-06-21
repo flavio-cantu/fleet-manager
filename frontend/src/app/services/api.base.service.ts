@@ -21,6 +21,12 @@ export class ApiService {
     return this.http.post<T>(`${this.baseUrl}/${endpoint}`, body);
   }
 
+  download(endpoint: string) {
+    return this.http.post(`${this.baseUrl}/${endpoint}`, {}, {
+      responseType: 'blob'
+    });
+  }
+
   put<T>(endpoint: string, body: any): Observable<T> {
     return this.http.put<T>(`${this.baseUrl}/${endpoint}`, body);
   }

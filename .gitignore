@@ -1,7 +1,12 @@
 .angular
 .idea
 
+
+**/plugin
+
 # Arquivos de cache e plugins
+**/.terraform.lock.hcl
+**/.terraform
 **/.terraformrc
 **/terraform.rc
 **/.terraform.d/
