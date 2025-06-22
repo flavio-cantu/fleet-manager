@@ -47,6 +47,7 @@ server.post('/register',
 
 server.post('/fleet/download/self',
     util.verifyToken(server),
+    util.needAuthorized(server),
     (req, res, next) => {
         try {
             const authHeader = req.headers.authorization;
@@ -58,6 +59,50 @@ server.post('/fleet/download/self',
             const inputJson = user.ccu;
 
             userFleet.forEach(ship => {
+                for (let i = 1; i <= (+ship.quantity); i++) {
+                    inputJson.push({
+                        name: ship.name,
+                        shipname: ship.nickname,
+                        type: "ship"
+                    })
+                }
+            });
+
+            const buffer = Buffer.from(JSON.stringify(inputJson), 'utf-8');
+            res.setHeader('Content-Type', 'application/octet-stream');
+            res.setHeader('Content-Disposition', 'attachment; filename="fleetview.json"');
+            res.send(buffer);
+
+        } catch (error) {
+            console.error('Erro ao gerar arquivo do fleetview:', error);
+            res.status(500).json({ error: 'Erro interno ao gerar o arquivo' });
+        }
+    });
+
+server.post('/fleet/download/guild',
+    util.verifyToken(server),
+    util.needAuthorized(server),
+    util.needAdmin(server),
+    (req, res, next) => {
+        try {
+
+            const usersCCU = server.db.get('users').value()
+                .map((user) => user.ccu);
+            const allFleets = server.db.get('fleet').value();
+
+            const inputJson = [];
+
+            usersCCU.forEach(user => {
+                user.forEach(ship => {
+                    inputJson.push({
+                        name: ship.name,
+                        shipname: ship.shipname,
+                        type: ship.type
+                    })
+                });
+            });
+
+            allFleets.forEach(ship => {
                 for (let i = 1; i <= (+ship.quantity); i++) {
                     inputJson.push({
                         name: ship.name,
@@ -156,6 +201,7 @@ server.post('/hangar',
 
 server.post('/download',
     util.verifyToken(server),
+    util.needAuthorized(server),
     (req, res, next) => {
         try {
             const authHeader = req.headers.authorization;
@@ -201,7 +247,9 @@ server.post('/download',
 
 
 server.get('/users',
-    util.verifyToken(server));
+    util.verifyToken(server),
+    util.needAuthorized(server),
+    util.needAdmin(server),);
 
 server.put('/users/:id/allow',
     util.verifyToken(server),

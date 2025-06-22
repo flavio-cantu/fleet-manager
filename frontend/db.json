@@ -1,10 +1,5 @@
 {
-  "oauth": [
-    {
-      "id": 1,
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGF3cy5jb20iLCJpYXQiOjE3NTA2MDM2NTcsImV4cCI6MTc1MDYwNzI1Nywic3ViIjoiMSJ9.RyBK2GppNaWWu0Uq0SN7avOb08kgsYRwLdG0LroBjwE"
-    }
-  ],
+  "oauth": [],
   "users": [
     {
       "email": "admin@aws.com",
@@ -12,111 +7,8 @@
       "nickname": "Admin",
       "id": 1,
       "authorized": true,
-      "admin": true,
-      "accessToken": "5VZC-5D63-NWA3-F6FZ-5EZA-2X",
-      "ccu": [
-        {
-          "name": "Endeavor",
-          "shipname": "Endeavor",
-          "type": "ship"
-        },
-        {
-          "name": "Constellation Taurus",
-          "shipname": "Constellation Taurus",
-          "type": "ship"
-        },
-        {
-          "name": "Orion",
-          "shipname": "Orion",
-          "type": "ship"
-        },
-        {
-          "name": "Eclipse",
-          "shipname": "Eclipse",
-          "type": "ship"
-        },
-        {
-          "name": "Zeus Mk II MR",
-          "shipname": "Zeus Mk II MR",
-          "type": "ship"
-        },
-        {
-          "name": "Zeus Mk II CL",
-          "shipname": "Zeus Mk II CL",
-          "type": "ship"
-        },
-        {
-          "name": "Syulen",
-          "shipname": "Syulen",
-          "type": "ship"
-        },
-        {
-          "name": "Merchantman",
-          "shipname": "Merchantman",
-          "type": "ship"
-        },
-        {
-          "name": "F7C Hornet Mk II",
-          "shipname": "F7C Hornet Mk II",
-          "type": "ship"
-        },
-        {
-          "name": "Razor EX",
-          "shipname": "Razor EX",
-          "type": "ship"
-        },
-        {
-          "name": "Starlancer MAX",
-          "shipname": "Starlancer MAX",
-          "type": "ship"
-        },
-        {
-          "name": "Guardian",
-          "shipname": "Guardian",
-          "type": "ship"
-        },
-        {
-          "name": "Gladius",
-          "shipname": "Gladius",
-          "type": "ship"
-        },
-        {
-          "name": "Terrapin Medic",
-          "shipname": "Terrapin Medic",
-          "type": "ship"
-        },
-        {
-          "name": "F7C-R Hornet Tracker Mk II",
-          "shipname": "F7C-R Hornet Tracker Mk II",
-          "type": "ship"
-        },
-        {
-          "name": "Fortune",
-          "shipname": "Fortune",
-          "type": "ship"
-        },
-        {
-          "name": "F7C-M Super Hornet Mk II",
-          "shipname": "F7C-M Super Hornet Mk II",
-          "type": "ship"
-        }
-      ]
+      "admin": true
     }
   ],
-  "fleet": [
-    {
-      "name": "Arrow",
-      "nickname": "",
-      "quantity": "10",
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "name": "125a",
-      "nickname": "2",
-      "quantity": 1,
-      "userId": 1,
-      "id": 2
-    }
-  ]
+  "fleet": []
 }
