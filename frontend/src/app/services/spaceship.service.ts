@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
 import { Observable, of } from "rxjs"
-import { Spaceship } from "../models/spaceship.model"
+import { CcuSpaceship, Spaceship } from "../models/spaceship.model"
 import { ApiService } from "./api.base.service"
 
 @Injectable({
@@ -9,12 +9,17 @@ import { ApiService } from "./api.base.service"
 export class SpaceshipService {
 
   private readonly endpoint: string = "fleet";
+  private readonly ccuEndpoint: string = "hangar";
 
   constructor(private apiService: ApiService) {
   }
 
   getUserSpaceships(): Observable<Spaceship[]> {
     return this.apiService.get<Spaceship[]>(this.endpoint);
+  }
+
+  getUserCCUSpaceships(): Observable<CcuSpaceship[]> {
+    return this.apiService.get<CcuSpaceship[]>(this.ccuEndpoint);
   }
 
   addSpaceship(spaceship: Spaceship): Observable<Spaceship> {

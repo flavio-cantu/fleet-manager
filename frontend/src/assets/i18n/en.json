@@ -47,7 +47,12 @@
     "NAME": "Name",
     "NICKNAME": "Nickname",
     "QUANTITY": "Quantity",
-    "ACTIONS": "Actions"
+    "ACTIONS": "Actions",
+    "CCU": {
+      "TITLE": "From CCU Site",
+      "WARNING": "Attention!",
+      "INFO_DESCRIPTION": "To update you must access the CCU page"
+    }
   },
   "MODAL": {
     "CANCEL": "Cancel",
@@ -79,6 +84,28 @@
     "DELETE_OPTION_DESCRIPTION": "You are about to delete the user and remove their fleet. Are you sure?",
     "ALLOW_OPTION": "Confirm the action?",
     "ALLOW_OPTION_DESCRIPTION": "Do you want to authorize this citizen to log into the system?"
+  },
+  "PLUGIN": {
+    "MENU": "Plugin",
+    "WARNING": "Attention!",
+    "WARNING_DESCRIPTION": "This plugin is non-transferable and is tied to your account. Do not share!",
+    "INFO_DESCRIPTION": "Each time you access the CCU page, your fleet here will be updated!",
+    "CHROME": {
+      "TITLE": "Chrome",
+      "INSTRUCTIONS": {
+        "1": "Click on the download button.",
+        "2": "Choose a directory where the plugin needs to be saved, it can be in the \"My Documents\" folder.",
+        "3": "Extract the ZIP file",
+        "4": "Open Chrome and go to the Extensions page by typing chrome://extensions/ in the address bar.",
+        "5": "Enable Developer mode by toggling the switch in the top right corner of the page.",
+        "6": "Click the \"Load unpacked\" button and select the folder that contains the extracted files.",
+        "7": "The extension will be installed and appear in the Extensions page.",
+        "8": "Now, just access the page: https://ccugame.app/your-items/fleet.",
+        "9": "It may take a few seconds for your list to appear here in the guild fleet."
+      }
+    },
+    "DOWNLOAD": "Download",
+    "TITLE": "Download de plugin para o navegador"
   },
   "VALIDATE": {
     "REQUIRED": "Required",

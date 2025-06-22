@@ -132,7 +132,7 @@ resource "aws_iam_role_policy" "permissao_s3" {
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [{
-      Action = ["s3:ListBucket", "s3:GetObject"],
+      Action = ["s3:ListBucket", "s3:GetObject", "s3:PostObject", "s3:PutObject"],
       Effect = "Allow",
       Resource = [
         "${aws_s3_bucket.bucket-shadow_guardian.arn}",

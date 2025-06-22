@@ -2,7 +2,7 @@
 .idea
 
 
-**/plugin
+/frontend/plugin
 
 # Arquivos de cache e plugins
 **/.terraform.lock.hcl

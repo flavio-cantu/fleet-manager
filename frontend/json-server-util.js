@@ -62,5 +62,5 @@ function searchOnTokenIdUser(authHeader) {
     const payload = Buffer.from(token, 'base64').toString('utf8');
     const match = payload.match(/"sub"\s*:\s*"?(?<sub>[^",}]+)"?/);
     const userId = match?.groups?.sub || null;
-    return parseInt(userId);
+    return +userId;
 }

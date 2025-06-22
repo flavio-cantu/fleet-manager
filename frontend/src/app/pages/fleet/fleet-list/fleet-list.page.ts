@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common"
 import { RouterModule } from "@angular/router"
 import { TranslateModule } from "@ngx-translate/core"
 import { NavComponent } from "../../../components/nav/nav.component"
-import { Spaceship } from "../../../models/spaceship.model"
+import { CcuSpaceship, Spaceship } from "../../../models/spaceship.model"
 import { SpaceshipService } from "../../../services/spaceship.service"
 import { TranslatorService } from "../../../services/translator.service"
 
@@ -16,6 +16,7 @@ import { TranslatorService } from "../../../services/translator.service"
 })
 export class FleetListPage implements OnInit {
   spaceships: Spaceship[] = []
+  ccuSpaceships: CcuSpaceship[] = []
   loading = true
   errorMessage = ""
 
@@ -32,7 +33,16 @@ export class FleetListPage implements OnInit {
     this.spaceshipService.getUserSpaceships().subscribe({
       next: (spaceships) => {
         this.spaceships = spaceships
-        this.loading = false
+        this.spaceshipService.getUserCCUSpaceships().subscribe({
+          next: (ccu) => {
+            this.ccuSpaceships = ccu;
+            this.loading = false;
+          },
+          error: (errorCode) => {
+            this.errorMessage = this.translator.translate(errorCode);
+            this.loading = false
+          }
+        });
       },
       error: (errorCode) => {
         this.errorMessage = this.translator.translate(errorCode);

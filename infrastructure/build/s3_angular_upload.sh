@@ -25,7 +25,7 @@ npm run mock:build
 
 echo "Comprimindo arquivos..."
 # Comprime a pasta src e todos os arquivos .json e .js no diretório principal
-zip -r "$ZIP_FILE" dist/ src/ public/ *.json *.js 2>/dev/null
+zip -r "$ZIP_FILE" dist/ src/ public/ plugin/ *.json *.js 2>/dev/null
 
 if [ ! -f "$ZIP_FILE" ]; then
   echo "Erro: Falha ao criar o arquivo zip"

@@ -62,6 +62,59 @@ server.get('/fleet',
 
     });
 
+server.get('/hangar',
+    util.verifyToken(server),
+    util.needAuthorized(server),
+    (req, res, next) => {
+        const authHeader = req.headers.authorization;
+        userId = util.getIdUser(authHeader)
+        const user = server.db.get('users').find({ id: userId }).value();
+        return res.status(200).json(user.ccu);
+
+    });
+
+server.post('/hangar',
+    util.verifyPluginToken(server),
+    (req, res, next) => {
+        const authHeader = req.headers.authorization;
+
+        try {
+            const result = [];
+
+            const response = req.body;
+            response.forEach(entitie => {
+                Object.keys(entitie).forEach(key => {
+                    const group = entitie[key];
+                    Object.keys(group).forEach(row => {
+                        const pack = group[row];
+                        if (pack && pack.place && pack.place == 'hangar') {
+                            //if (row == '10235266') {
+                            pack['items'].forEach(item => {
+                                if (item.kind == 'Ship') {
+                                    result.push({
+                                        "name": item.name, "shipname": item.name, "type": "ship"
+                                    });
+                                }
+                            });
+                            //}
+                        }
+                    });
+                });
+            })
+
+            server.db.get('users')
+                .find({ accessToken: authHeader })
+                .assign({ ccu: result })
+                .write();
+
+            res.status(200).json('OK')
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    });
+
+
 server.post('/download',
     util.verifyToken(server),
     (req, res, next) => {
@@ -106,50 +159,7 @@ server.post('/download',
         }
     });
 
-server.post('/hangar',
-    util.verifyPluginToken(server),
-    (req, res, next) => {
-        const authHeader = req.headers.authorization;
-        const user = server.db.get('users').filter({ accessToken: authHeader }).value();
 
-        try {
-            const result = [];
-
-            const response = req.body;
-            response.forEach(entitie => {
-                Object.keys(entitie).forEach(key => {
-                    const group = entitie[key];
-                    Object.keys(group).forEach(row => {
-                        const pack = group[row];
-                        if (pack && pack.place && pack.place == 'hangar') {
-                            //if (row == '10235266') {
-                            pack['items'].forEach(item => {
-                                if (item.kind == 'Ship') {
-                                    result.push({
-                                        "name": item.name, "shipname": item.name, "type": "ship"
-                                    });
-                                }
-                            });
-                            //}
-                        }
-                    });
-                });
-            })
-
-            server.db.get('users')
-                .find({ id: parseInt(id) })
-                .assign({ ccu: result })
-                .write();
-
-            res.status(200).json('OK')
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ error: 'Internal server error' });
-        }
-
-
-
-    });
 
 server.get('/users',
     util.verifyToken(server));

@@ -1,14 +1,5 @@
 {
-  "oauth": [
-    {
-      "id": 1,
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGF3cy5jb20iLCJpYXQiOjE3NTA1MjcxNTMsImV4cCI6MTc1MDUzMDc1Mywic3ViIjoiMSJ9.nBbimXiC1pKIHtZCA_j1VpuACehRCwn4TvytjLt5qoU"
-    },
-    {
-      "id": 2,
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1lbWJyb0Bhd3MuY29tIiwiaWF0IjoxNzQ5OTMxNzk3LCJleHAiOjE3NDk5MzUzOTcsInN1YiI6IjIifQ.4RRiy-PXaaR_rj0TzkiJcU4mKH9wiRvSYoPdwZZlMGk"
-    }
-  ],
+  "oauth": [],
   "users": [
     {
       "email": "admin@aws.com",
@@ -16,30 +7,8 @@
       "nickname": "Admin",
       "id": 1,
       "authorized": true,
-      "admin": true,
-      "accessToken": "KCOH-CAFH-SBXC-A98O-98ZW-RE"
-    },
-    {
-      "email": "membro@aws.com",
-      "password": "$2a$10$LkN6.HKhBe9BwrpBN3wQweAtrCCelM49/THqWFgq6YDPWH0BQDE8O",
-      "nickname": "Membro",
-      "id": 2
+      "admin": true
     }
   ],
-  "fleet": [
-    {
-      "name": "Arrow",
-      "nickname": "",
-      "quantity": "5",
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "name": "Gladius",
-      "nickname": "Gladius pirata",
-      "quantity": "2",
-      "userId": 1,
-      "id": 2
-    }
-  ]
+  "fleet": []
 }

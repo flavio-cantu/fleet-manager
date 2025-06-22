@@ -11,6 +11,11 @@
             {{ 'NAV.SPACESHIPS' | translate }}
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/plugin" routerLinkActive="active">
+            {{ 'PLUGIN.MENU' | translate }}
+          </a>
+        </li>
         <li *ngIf="isAdmin" class="nav-item">
           <a class="nav-link" routerLink="/users" routerLinkActive="active">
             {{ 'NAV.USERS' | translate }}
@@ -18,9 +23,6 @@
         </li>
       </ul>
       <div class="d-flex align-items-center" *ngIf="currentUser">
-        <button class="btn btn-info me-3" (click)="download()">
-          {{ 'NAV.DOWNLOAD' | translate }}
-        </button>
         <app-language-switcher class="me-3"></app-language-switcher>
         <span class="text-light me-3">{{ currentUser.nickname }}</span>
         <button class="btn btn-outline-light" (click)="logout()">

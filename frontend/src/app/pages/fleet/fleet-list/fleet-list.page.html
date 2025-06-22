@@ -46,4 +46,36 @@
       </tbody>
     </table>
   </div>
+
+  <div class="border border-bottom mt-3 mb-3"></div>
+
+  <div *ngIf="!loading && ccuSpaceships.length > 0" class="table-responsive mt-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <h3>{{ 'SPACESHIP_LIST.CCU.TITLE' | translate }}</h3>
+    </div>
+
+    <div>
+      <span style="font-size:1rem">
+        <span class="text-danger text-uppercase font-weight-bold" style="font-size:1.2rem">
+          {{ 'SPACESHIP_LIST.CCU.WARNING' | translate}}</span>
+      </span>
+      {{ 'SPACESHIP_LIST.CCU.INFO_DESCRIPTION' | translate }}
+    </div>
+
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>{{ 'SPACESHIP_LIST.NAME' | translate }}</th>
+          <th>{{ 'SPACESHIP_LIST.NICKNAME' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let spaceship of ccuSpaceships">
+          <td>{{ spaceship.name }}</td>
+          <td>{{ spaceship.shipname }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

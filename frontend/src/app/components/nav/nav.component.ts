@@ -36,19 +36,5 @@ export class NavComponent {
     return this.currentUser?.admin;
   }
 
-  download() {
-    this.userService.downloadPlugin().subscribe({
-      next: (blob) => {
-        const a = document.createElement('a');
-        const url = window.URL.createObjectURL(blob);
-        a.href = url;
-        a.download = 'plugin.zip';
-        a.click();
-        window.URL.revokeObjectURL(url);
-      },
-      error: (error) => {
-        console.error('Erro no download:', error);
-      }
-    });
-  }
+
 }

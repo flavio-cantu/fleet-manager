@@ -5,3 +5,8 @@ export interface Spaceship {
   quantity: number
   userId: string
 }
+
+export interface CcuSpaceship {
+  name: string
+  shipname: string
+}
