@@ -10,8 +10,9 @@
         <div class="card-body">
           <form [formGroup]="spaceshipForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-              <app-input-field id="name" label="SPACESHIP_FORM.NAME" formControlName="name" title="SPACESHIP_FORM.NAME"
-                [control]="spaceshipForm.get('name')" [submitted]="submitted()" />
+              <app-select-field id="name" label="SPACESHIP_FORM.NAME" formControlName="name" title="SPACESHIP_FORM.NAME"
+                [options]="avaliableShips" [formGroup]="spaceshipForm" [control]="spaceshipForm.get('name')"
+                [submitted]="submitted()" />
             </div>
 
             <div class="mb-3">

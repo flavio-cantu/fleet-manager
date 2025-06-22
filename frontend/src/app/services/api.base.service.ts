@@ -14,7 +14,11 @@ export class ApiService {
   }
 
   get<T>(endpoint: string): Observable<T> {
-    return this.http.get<T>(`${this.baseUrl}/${endpoint}`);;
+    return this.http.get<T>(`${this.baseUrl}/${endpoint}`);
+  }
+
+  getAsset<T>(endpoint: string): Observable<T> {
+    return this.http.get<T>(`${endpoint}`);
   }
 
   post<T>(endpoint: string, body: any): Observable<T> {

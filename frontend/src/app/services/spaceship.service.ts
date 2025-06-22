@@ -29,4 +29,8 @@ export class SpaceshipService {
   deleteSpaceship(id: string): Observable<boolean> {
     return this.apiService.delete<boolean>(`${this.endpoint}/${id}`);
   }
+
+  loadShipNames(): Observable<string[]> {
+    return this.apiService.getAsset('assets/ships.json');
+  }
 }
