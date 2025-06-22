@@ -43,6 +43,20 @@ resource "aws_instance" "shadow_guardian_instance" {
                 content: |
                   AWS_REGION=${data.aws_region.current.name}
                   NG_CLI_ANALYTICS=false
+              - path: /scripts/bkp.sh
+                permissions: '0755'
+                content: |
+                  #!/bin/bash
+                  aws s3 cp /app/db.json s3://${aws_s3_bucket.bucket-shadow_guardian.bucket}/db.json
+              - path: /scripts/get_ip.sh
+                permissions: '0755'
+                content: |
+                  #!/bin/bash
+                  rm /app/json-server-confg.json
+                  IP=$(curl -s https://checkip.amazonaws.com)
+                  URL="http://$IP:3000"
+                  echo $URL
+                  echo "{\"path\": \"$URL\"}" > /app/json-server-confg.json
               - path: /scripts/setup_node.sh
                 permissions: '0755'
                 content: |
@@ -64,6 +78,8 @@ resource "aws_instance" "shadow_guardian_instance" {
               - aws s3 cp s3://${aws_s3_bucket.bucket-shadow_guardian.bucket}/nginx/default.conf /etc/nginx/sites-available/default
               - unzip -o /app/frontend.zip -d /app
               - rm /app/frontend.zip
+              - aws s3 cp s3://${aws_s3_bucket.bucket-shadow_guardian.bucket}/db.json /app/db.json
+              - /scripts/get_ip.sh
               - /scripts/setup_node.sh
               - /etc/init.d/nginx restart
             EOF

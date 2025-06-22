@@ -51,7 +51,7 @@
     "CCU": {
       "TITLE": "From CCU Site",
       "WARNING": "Attention!",
-      "INFO_DESCRIPTION": "To update you must access the CCU page"
+      "INFO_DESCRIPTION": "To update you must access the CCU page with the plugin active."
     }
   },
   "MODAL": {
@@ -124,6 +124,9 @@
       "NOT_FOUND_DESCRIPTION": "The page you are looking for does not exist or has moved.",
       "WAIT_APPROVAL": "User awaiting approval",
       "WAIT_APPROVAL_DESCRIPTION": "You have already registered, just wait for one of the administrators to grant access. If it takes a while, talk to an administrator on discord"
+    },
+    "USER": {
+      "NOTFOUND": "User do not exists"
     },
     "PASSOWRD": {
       "SMALL": "Invalid password"
