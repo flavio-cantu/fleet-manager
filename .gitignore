@@ -3,6 +3,7 @@
 
 
 /frontend/plugin
+**/load-test/results
 
 # Arquivos de cache e plugins
 **/.terraform.lock.hcl

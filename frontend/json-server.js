@@ -8,6 +8,8 @@ const archiver = require('archiver');
 const util = require('./json-server-util');
 const config = require('./json-server-confg.json');
 
+const { Mutex } = require('async-mutex');
+
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
@@ -215,6 +217,17 @@ server.delete('/users/:id',
 
 server.use(auth);
 server.use(router);
+
+server.use(async (req, res, next) => {
+    const isWrite = ['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method);
+
+    if (isWrite) {
+        const release = await mutex.acquire(); // bloqueia outras escritas
+        res.on('finish', release); // libera após resposta
+    }
+
+    next();
+});
 
 server.listen(3000, () => {
     console.log('JSON Server com auth rodando em http://localhost:3000');
