@@ -6,6 +6,7 @@ import { NavComponent } from "../../../components/nav/nav.component"
 import { CcuSpaceship, Spaceship } from "../../../models/spaceship.model"
 import { SpaceshipService } from "../../../services/spaceship.service"
 import { TranslatorService } from "../../../services/translator.service"
+import { AuthService } from "../../../services/auth.service"
 
 @Component({
   selector: "page-fleet-list",
@@ -21,7 +22,8 @@ export class FleetListPage implements OnInit {
   errorMessage = ""
 
   constructor(private spaceshipService: SpaceshipService,
-    private translator: TranslatorService
+    private translator: TranslatorService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -61,4 +63,26 @@ export class FleetListPage implements OnInit {
       },
     })
   }
+
+  get isAdmin() {
+    return this.authService.getCurrentUser()?.admin;
+  }
+
+  downloadFleetView(type: string) {
+    this.spaceshipService.downloadFleet(type).subscribe({
+      next: (blob) => {
+        const a = document.createElement('a');
+        const url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = 'fleetview.json';
+        a.click();
+        window.URL.revokeObjectURL(url);
+      },
+      error: (error) => {
+        console.error('Erro no download:', error);
+      }
+    });
+  }
+
+
 }

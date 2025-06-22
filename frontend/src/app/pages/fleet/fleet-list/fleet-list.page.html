@@ -1,11 +1,21 @@
 <app-nav></app-nav>
 
 <div class="container">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1>{{ 'SPACESHIP_LIST.TITLE' | translate }}</h1>
-    <a routerLink="/spaceships/new" class="btn btn-primary">
-      {{ 'SPACESHIP_LIST.ADD_NEW' | translate }}
-    </a>
+  <div class="row mb-4">
+    <div class="col">
+      <h1>{{ 'SPACESHIP_LIST.TITLE' | translate }}</h1>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-outline-primary me-3" (click)="downloadFleetView('guild')">
+        {{ 'SPACESHIP_LIST.GUILD_FLEETVIEW' | translate }}
+      </button>
+      <button class="btn btn-outline-secondary me-3" (click)="downloadFleetView('self')">
+        {{ 'SPACESHIP_LIST.SELF_FLEETVIEW' | translate }}
+      </button>
+      <a routerLink="/spaceships/new" class="btn btn-primary">
+        {{ 'SPACESHIP_LIST.ADD_NEW' | translate }}
+      </a>
+    </div>
   </div>
 
   <div *ngIf="loading" class="text-center my-5">

@@ -44,6 +44,43 @@ server.post('/register',
         next();
     });
 
+
+server.post('/fleet/download/self',
+    util.verifyToken(server),
+    (req, res, next) => {
+        try {
+            const authHeader = req.headers.authorization;
+            const idUser = util.getIdUser(authHeader);
+
+            const user = server.db.get('users').find({ id: idUser }).value();
+            const userFleet = server.db.get('fleet').filter({ userId: idUser }).value();
+
+            const inputJson = user.ccu;
+
+            userFleet.forEach(ship => {
+                for (let i = 1; i <= (+ship.quantity); i++) {
+                    inputJson.push({
+                        name: ship.name,
+                        shipname: ship.nickname,
+                        type: "ship"
+                    })
+                }
+            });
+
+            const buffer = Buffer.from(JSON.stringify(inputJson), 'utf-8');
+            res.setHeader('Content-Type', 'application/octet-stream');
+            res.setHeader('Content-Disposition', 'attachment; filename="fleetview.json"');
+            res.send(buffer);
+
+        } catch (error) {
+            console.error('Erro ao gerar arquivo do fleetview:', error);
+            res.status(500).json({ error: 'Erro interno ao gerar o arquivo' });
+        }
+
+
+    });
+
+
 server.post('/fleet',
     util.verifyToken(server),
     util.needAuthorized(server),

@@ -25,8 +25,8 @@ export class ApiService {
     return this.http.post<T>(`${this.baseUrl}/${endpoint}`, body);
   }
 
-  download(endpoint: string) {
-    return this.http.post(`${this.baseUrl}/${endpoint}`, {}, {
+  download(endpoint: string, body: any = {}) {
+    return this.http.post(`${this.baseUrl}/${endpoint}`, body, {
       responseType: 'blob'
     });
   }

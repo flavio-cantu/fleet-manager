@@ -48,6 +48,8 @@
     "NICKNAME": "Nickname",
     "QUANTITY": "Quantity",
     "ACTIONS": "Actions",
+    "SELF_FLEETVIEW": "Your Fleet",
+    "GUILD_FLEETVIEW": "Guild Fleet",
     "CCU": {
       "TITLE": "From CCU Site",
       "WARNING": "Attention!",

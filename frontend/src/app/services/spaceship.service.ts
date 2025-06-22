@@ -33,4 +33,8 @@ export class SpaceshipService {
   loadShipNames(): Observable<string[]> {
     return this.apiService.getAsset('assets/ships.json');
   }
+
+  downloadFleet(type: string) {
+    return this.apiService.download(`${this.endpoint}/download/${type}`);
+  }
 }

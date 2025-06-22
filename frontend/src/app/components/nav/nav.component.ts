@@ -18,7 +18,6 @@ export class NavComponent {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService,
     private router: Router,
   ) { }
 
