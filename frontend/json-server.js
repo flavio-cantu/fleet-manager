@@ -56,7 +56,10 @@ server.post('/fleet/download/self',
             const user = server.db.get('users').find({ id: idUser }).value();
             const userFleet = server.db.get('fleet').filter({ userId: idUser }).value();
 
-            const inputJson = user.ccu;
+            const inputJson = [];
+            if (user.ccu) {
+                inputJson = user.ccu;
+            }
 
             userFleet.forEach(ship => {
                 for (let i = 1; i <= (+ship.quantity); i++) {
