@@ -49,7 +49,7 @@
 
   <div class="border border-bottom mt-3 mb-3"></div>
 
-  <div *ngIf="!loading && ccuSpaceships.length > 0" class="table-responsive mt-3">
+  <div *ngIf="!loading && ccuSpaceships && ccuSpaceships.length > 0" class="table-responsive mt-3">
     <div class="d-flex justify-content-between align-items-center">
       <h3>{{ 'SPACESHIP_LIST.CCU.TITLE' | translate }}</h3>
     </div>
