@@ -6,7 +6,7 @@
 **/load-test/results
 
 # Arquivos de cache e plugins
-**/.terraform.lock.hcl
+**/.terraform.lock.*
 **/.terraform
 **/.terraformrc
 **/terraform.rc

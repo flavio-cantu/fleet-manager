@@ -63,6 +63,7 @@ export class SignInPage {
         this.loading = false
       },
       complete: () => {
+        console.log('complete')
         this.loading = false
       },
     })

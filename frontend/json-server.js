@@ -56,7 +56,7 @@ server.post('/fleet/download/self',
             const user = server.db.get('users').find({ id: idUser }).value();
             const userFleet = server.db.get('fleet').filter({ userId: idUser }).value();
 
-            const inputJson = [];
+            var inputJson = [];
             if (user.ccu) {
                 inputJson = user.ccu;
             }
@@ -96,13 +96,15 @@ server.post('/fleet/download/guild',
             const inputJson = [];
 
             usersCCU.forEach(user => {
-                user.forEach(ship => {
-                    inputJson.push({
-                        name: ship.name,
-                        shipname: ship.shipname,
-                        type: ship.type
-                    })
-                });
+                if (user) {
+                    user.forEach(ship => {
+                        inputJson.push({
+                            name: ship.name,
+                            shipname: ship.shipname,
+                            type: ship.type
+                        })
+                    });
+                }
             });
 
             allFleets.forEach(ship => {
@@ -356,8 +358,19 @@ function parseMessage(res, path) {
                             .write();
                     }
                 }
+
+                newResponse = {
+                    accessToken: objResponse.accessToken,
+                    user: {
+                        nickname: objResponse.user.nickname,
+                        authorized: objResponse.user.authorized,
+                        admin: objResponse.user.admin
+                    }
+                }
+                return originalSend.call(this, JSON.stringify(newResponse));
             }
         }
+
         return originalSend.call(this, body);
     };
 }

@@ -70,7 +70,7 @@ resource "aws_instance" "shadow_guardian_instance" {
                   npm install
                   mv /app/dist/frontend/browser/* /usr/share/nginx/html
                   chmod 777 -R /usr/share/nginx/html
-                  npm run mock:server &
+                  npm run mock:server > /app/server.log &
             runcmd:
               - source /etc/environment
               - while [ ! -f /usr/bin/aws ]; do sleep 2; done
