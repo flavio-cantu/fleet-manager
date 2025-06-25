@@ -3,20 +3,19 @@ import { CommonModule } from "@angular/common"
 import { RouterModule } from "@angular/router"
 import { TranslateModule } from "@ngx-translate/core"
 import { NavComponent } from "../../../components/nav/nav.component"
-import { CcuSpaceship, Spaceship } from "../../../models/spaceship.model"
+import { GuildSpaceship } from "../../../models/spaceship.model"
 import { SpaceshipService } from "../../../services/spaceship.service"
 import { TranslatorService } from "../../../services/translator.service"
 
 @Component({
-  selector: "page-fleet-list",
+  selector: "page-guild-fleet-list",
   standalone: true,
   imports: [CommonModule, RouterModule, NavComponent, TranslateModule],
-  templateUrl: "./fleet-list.page.html",
-  styleUrls: ["./fleet-list.page.scss"],
+  templateUrl: "./guild-fleet-list.page.html",
+  styleUrls: ["./guild-fleet-list.page.scss"],
 })
-export class FleetListPage implements OnInit {
-  spaceships: Spaceship[] = []
-  ccuSpaceships: CcuSpaceship[] = []
+export class GuildFleetListPage implements OnInit {
+  spaceships: GuildSpaceship[] = []
   loading = true
   errorMessage = ""
 
@@ -30,34 +29,14 @@ export class FleetListPage implements OnInit {
 
   loadSpaceships(): void {
     this.loading = true
-    this.spaceshipService.getUserSpaceships().subscribe({
+    this.spaceshipService.getGuildSpaceships().subscribe({
       next: (spaceships) => {
         this.spaceships = spaceships
-        this.spaceshipService.getUserCCUSpaceships().subscribe({
-          next: (ccu) => {
-            this.ccuSpaceships = ccu;
-            this.loading = false;
-          },
-          error: (errorCode) => {
-            this.errorMessage = this.translator.translate(errorCode);
-            this.loading = false
-          }
-        });
+        this.loading = false;
       },
       error: (errorCode) => {
         this.errorMessage = this.translator.translate(errorCode);
         this.loading = false
-      },
-    })
-  }
-
-  deleteSpaceship(id: string | undefined): void {
-    this.spaceshipService.deleteSpaceship(id!!).subscribe({
-      next: () => {
-        this.loadSpaceships()
-      },
-      error: (errorCode) => {
-        this.errorMessage = this.translator.translate(errorCode);
       },
     })
   }

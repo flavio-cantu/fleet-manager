@@ -6,11 +6,8 @@
       <h1>{{ 'SPACESHIP_LIST.TITLE' | translate }}</h1>
     </div>
     <div class="col text-end">
-      <button class="btn btn-outline-primary me-3" *ngIf="isAdmin" (click)="downloadFleetView('guild')">
-        {{ 'SPACESHIP_LIST.GUILD_FLEETVIEW' | translate }}
-      </button>
       <button class="btn btn-outline-secondary me-3" (click)="downloadFleetView('self')">
-        {{ 'SPACESHIP_LIST.SELF_FLEETVIEW' | translate }}
+        {{ 'SPACESHIP_LIST.FLEETVIEW' | translate }}
       </button>
       <a routerLink="/spaceships/new" class="btn btn-primary">
         {{ 'SPACESHIP_LIST.ADD_NEW' | translate }}

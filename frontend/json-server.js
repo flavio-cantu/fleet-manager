@@ -151,6 +151,46 @@ server.get('/fleet',
 
     });
 
+server.get('/guild/fleet',
+    util.verifyToken(server),
+    util.needAuthorized(server),
+    util.needAdmin(server),
+    (req, res, next) => {
+        var guildFleet = [];
+
+        server.db.get('users').value().forEach(user => {
+            const userFleet = [];
+            const fleet = server.db.get('fleet').filter({ userId: user.id }).value();
+            if (fleet) {
+                fleet.forEach(ship => {
+                    userFleet.push({
+                        name: ship.name,
+                        nickname: ship.nickname,
+                        quantity: ship.quantity,
+                        owner: user.nickname,
+                    })
+                });
+            }
+
+            if (user.ccu) {
+                user.ccu.forEach(ccu => {
+                    userFleet.push({
+                        name: ccu.name,
+                        nickname: ccu.shipname,
+                        quantity: 1,
+                        owner: user.nickname,
+                    });
+                });
+            }
+
+            const grouped = groupAndSumByFields(userFleet);
+            guildFleet = guildFleet.concat(grouped);
+        });
+
+        return res.status(200).json(guildFleet);
+
+    });
+
 server.get('/hangar',
     util.verifyToken(server),
     util.needAuthorized(server),
@@ -399,4 +439,18 @@ function generateAlphaNumericSerial(length = 8) {
     }
     // Formata como XXYY-ZZWW se length = 8
     return serial.match(/.{1,4}/g).join('-');
+}
+
+function groupAndSumByFields(array, fieldsToGroup = ['owner', 'name'], sumField = 'quantity') {
+    return Object.values(array.reduce((acc, current) => {
+        const key = fieldsToGroup.map(field => current[field]).join('-');
+
+        if (acc[key]) {
+            acc[key][sumField] += current[sumField];
+        } else {
+            acc[key] = { ...current };
+        }
+
+        return acc;
+    }, {}));
 }

@@ -1,0 +1,49 @@
+<app-nav></app-nav>
+
+<div class="container">
+  <div class="row mb-4">
+    <div class="col">
+      <h1>{{ 'GUILD_SPACESHIP_LIST.TITLE' | translate }}</h1>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-outline-primary me-3" (click)="downloadFleetView('guild')">
+        {{ 'GUILD_SPACESHIP_LIST.FLEETVIEW' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">{{ 'COMMON.LOADING' | translate }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!loading && spaceships.length === 0" class="alert alert-info">
+    {{ 'GUILD_SPACESHIP_LIST.NO_SPACESHIPS' | translate }}
+  </div>
+
+  <div *ngIf="!loading && spaceships.length > 0" class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>{{ 'GUILD_SPACESHIP_LIST.OWNER' | translate }}</th>
+          <th>{{ 'GUILD_SPACESHIP_LIST.NAME' | translate }}</th>
+          <th>{{ 'GUILD_SPACESHIP_LIST.NICKNAME' | translate }}</th>
+          <th>{{ 'GUILD_SPACESHIP_LIST.QUANTITY' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let spaceship of spaceships">
+          <td>{{ spaceship.owner }}</td>
+          <td>{{ spaceship.name }}</td>
+          <td>{{ spaceship.nickname }}</td>
+          <td>{{ spaceship.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

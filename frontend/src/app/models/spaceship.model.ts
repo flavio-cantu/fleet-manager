@@ -10,3 +10,10 @@ export interface CcuSpaceship {
   name: string
   shipname: string
 }
+
+export interface GuildSpaceship {
+  owner: string
+  name: string
+  nickname: string
+  quantity: number
+}

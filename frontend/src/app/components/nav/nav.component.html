@@ -17,7 +17,12 @@
           </a>
         </li>
         <li *ngIf="isAdmin" class="nav-item">
-          <a class="nav-link" routerLink="/users" routerLinkActive="active">
+          <a class="nav-link" routerLink="/guild/fleet" routerLinkActive="active">
+            {{ 'NAV.GUILD_SHIPS' | translate }}
+          </a>
+        </li>
+        <li *ngIf="isAdmin" class="nav-item">
+          <a class="nav-link" routerLink="/guild/users" routerLinkActive="active">
             {{ 'NAV.USERS' | translate }}
           </a>
         </li>

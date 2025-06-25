@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
-import { Observable, of } from "rxjs"
-import { CcuSpaceship, Spaceship } from "../models/spaceship.model"
+import { map, Observable, of } from "rxjs"
+import { CcuSpaceship, GuildSpaceship, Spaceship } from "../models/spaceship.model"
 import { ApiService } from "./api.base.service"
 
 @Injectable({
@@ -31,10 +31,18 @@ export class SpaceshipService {
   }
 
   loadShipNames(): Observable<string[]> {
-    return this.apiService.getAsset('assets/ships.json');
+    return this.apiService.getAsset<string[]>('assets/ships.json').pipe(
+      map((ships: string[]) => ships.sort((a, b) => a.localeCompare(b)))
+    );
   }
 
   downloadFleet(type: string) {
     return this.apiService.download(`${this.endpoint}/download/${type}`);
   }
+
+
+  getGuildSpaceships(): Observable<GuildSpaceship[]> {
+    return this.apiService.get<GuildSpaceship[]>(`guild/${this.endpoint}`);
+  }
+
 }

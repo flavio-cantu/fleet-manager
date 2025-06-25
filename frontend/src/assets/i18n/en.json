@@ -37,6 +37,7 @@
     "TITLE": "Fleet Manager",
     "SPACESHIPS": "My Spaceships",
     "ADD_SPACESHIP": "Add Spaceship",
+    "GUILD_SHIPS": "Guild ships",
     "USERS": "Guild Members",
     "LOGOUT": "Logout"
   },
@@ -48,13 +49,21 @@
     "NICKNAME": "Nickname",
     "QUANTITY": "Quantity",
     "ACTIONS": "Actions",
-    "SELF_FLEETVIEW": "Your Fleet",
-    "GUILD_FLEETVIEW": "Guild Fleet",
+    "FLEETVIEW": "Export fleetview",
     "CCU": {
       "TITLE": "From CCU Site",
       "WARNING": "Attention!",
       "INFO_DESCRIPTION": "To update you must access the CCU page with the plugin active."
     }
+  },
+  "GUILD_SPACESHIP_LIST": {
+    "TITLE": "Guild Spaceships",
+    "NO_SPACESHIPS": "Your don't have any spaceships registered yet.",
+    "OWNER": "Owner",
+    "NAME": "Name",
+    "NICKNAME": "Nickname",
+    "QUANTITY": "Quantity",
+    "FLEETVIEW": "Export fleetview"
   },
   "MODAL": {
     "CANCEL": "Cancel",

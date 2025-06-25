@@ -34,9 +34,15 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: "users",
+    path: "guild/users",
     loadComponent: () =>
-      import("./pages/user/user-list/user-list.page").then((m) => m.UserListPage),
+      import("./pages/guild/user-list/user-list.page").then((m) => m.UserListPage),
+    canActivate: [AdminGuard],
+  },
+  {
+    path: "guild/fleet",
+    loadComponent: () =>
+      import("./pages/guild/fleet-list/guild-fleet-list.page").then((m) => m.GuildFleetListPage),
     canActivate: [AdminGuard],
   },
   {
