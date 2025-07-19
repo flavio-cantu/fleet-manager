@@ -1,0 +1,32 @@
+<mat-dialog-content>
+  <div class="content-scroll">
+    <div class="scrollable-list">
+      <div *ngIf="data.items.errors?.length != 0" class="container mb-3 pb-2">
+        <h4>{{'MODAL.ERROR_DESCRIPTION' | translate}}</h4>
+        <div class="alert alert-danger mt-3 mb-0">
+          <ul class="list-group list-group-flush list-group-numbered list-group-item-danger">
+            @for (error of data.items.errors; track $index) {
+            <li class="list-group-item">{{ error }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="data.items.warnings?.length != 0" class="container border-top mb-3 pb-2 pt-3">
+        <h4>{{'MODAL.WARNING_DESCRIPTION' | translate}}</h4>
+        <div class="alert alert-warning mt-3 mb-0">
+          <ul class="list-group list-group-flush list-group-numbered list-group-item-warning">
+            @for (warning of data.items.warnings; track $index) {
+            <li class="list-group-item">{{ warning }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button class="btn btn-primary" (click)="onClose()">Fechar</button>
+</mat-dialog-actions>

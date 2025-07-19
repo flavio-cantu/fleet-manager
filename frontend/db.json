@@ -1,5 +1,10 @@
 {
-  "oauth": [],
+  "oauth": [
+    {
+      "id": 1,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGF3cy5jb20iLCJpYXQiOjE3NTI5Mzk3MTcsImV4cCI6MTc1Mjk0MzMxNywic3ViIjoiMSJ9.jM6rH9Y8_l_Dj5dCIFJf1a8SmABTfMU-x8h54gg721g"
+    }
+  ],
   "users": [
     {
       "email": "admin@aws.com",
@@ -7,8 +12,23 @@
       "nickname": "Admin",
       "id": 1,
       "authorized": true,
-      "admin": true
+      "admin": true,
+      "ccu": [
+        {
+          "name": "Cutter Scout",
+          "shipname": "Cutter Scout",
+          "type": "ship"
+        }
+      ]
     }
   ],
-  "fleet": []
+  "fleet": [
+    {
+      "name": "135c",
+      "nickname": "123",
+      "quantity": "11",
+      "userId": 1,
+      "id": 1
+    }
+  ]
 }

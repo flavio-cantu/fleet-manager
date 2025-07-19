@@ -1,0 +1,849 @@
+{
+  "oauth": [
+    {
+      "id": 2,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1aWFyY29jaGFAaG90bWFpbC5jb20iLCJpYXQiOjE3NTA3NzA2MTEsImV4cCI6MTc1MDc3NDIxMSwic3ViIjoiMiJ9.PbaTVUDOaSwypkOHDZu8h1RGl1e5UH57XpxsYTWy2sg"
+    },
+    {
+      "id": 3,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJyZXplbmRlQGZndm1haWwuYnIiLCJpYXQiOjE3NTA3NzA2MTIsImV4cCI6MTc1MDc3NDIxMiwic3ViIjoiMyJ9.sDlrPeP0U1Unzi-8g12FyX4BwIveEYiS-CAaWr9kp7A"
+    },
+    {
+      "id": 1,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGF3cy5jb20iLCJpYXQiOjE3NTA3Nzk2NzEsImV4cCI6MTc1MDc4MzI3MSwic3ViIjoiMSJ9.h1LbsghuOfI18COl7GOs1wHXi5P25CQnh8iW9d07zI4"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@aws.com",
+      "password": "$2a$10$wSepmcO82482Jz1ZNLwNgeVzyrqo8tfmgOU3OHsq9nLF8EmZFkYgy",
+      "nickname": "Admin",
+      "id": 1,
+      "authorized": true,
+      "admin": true
+    },
+    {
+      "email": "guiarcocha@hotmail.com",
+      "password": "$2a$10$3bpPl1IXxJFP4dY6Um8RV.LKvl4iDeUQNPv0XV.0/FhGaN9Z3sJEu",
+      "nickname": "Arcocha",
+      "id": 2,
+      "authorized": true,
+      "admin": true,
+      "accessToken": "TB54-U2RE-R380-VWDC-ZFM6-D5",
+      "ccu": [
+        {
+          "name": "Cutter Scout",
+          "shipname": "Cutter Scout",
+          "type": "ship"
+        },
+        {
+          "name": "Vanguard Sentinel",
+          "shipname": "Vanguard Sentinel",
+          "type": "ship"
+        },
+        {
+          "name": "600i Exploration Module",
+          "shipname": "600i Exploration Module",
+          "type": "ship"
+        },
+        {
+          "name": "Corsair",
+          "shipname": "Corsair",
+          "type": "ship"
+        },
+        {
+          "name": "F7A Hornet Mk II",
+          "shipname": "F7A Hornet Mk II",
+          "type": "ship"
+        },
+        {
+          "name": "Perseus",
+          "shipname": "Perseus",
+          "type": "ship"
+        },
+        {
+          "name": "Zeus Mk II ES",
+          "shipname": "Zeus Mk II ES",
+          "type": "ship"
+        },
+        {
+          "name": "Apollo Medivac",
+          "shipname": "Apollo Medivac",
+          "type": "ship"
+        },
+        {
+          "name": "Railen",
+          "shipname": "Railen",
+          "type": "ship"
+        },
+        {
+          "name": "Hercules Starlifter C2",
+          "shipname": "Hercules Starlifter C2",
+          "type": "ship"
+        },
+        {
+          "name": "Galaxy",
+          "shipname": "Galaxy",
+          "type": "ship"
+        },
+        {
+          "name": "Zeus Mk II CL",
+          "shipname": "Zeus Mk II CL",
+          "type": "ship"
+        },
+        {
+          "name": "Polaris",
+          "shipname": "Polaris",
+          "type": "ship"
+        },
+        {
+          "name": "MPUV Tractor",
+          "shipname": "MPUV Tractor",
+          "type": "ship"
+        },
+        {
+          "name": "MPUV Personnel",
+          "shipname": "MPUV Personnel",
+          "type": "ship"
+        },
+        {
+          "name": "MPUV Cargo",
+          "shipname": "MPUV Cargo",
+          "type": "ship"
+        },
+        {
+          "name": "Zeus Mk II MR",
+          "shipname": "Zeus Mk II MR",
+          "type": "ship"
+        },
+        {
+          "name": "Carrack with Pisces Expedition",
+          "shipname": "Carrack with Pisces Expedition",
+          "type": "ship"
+        },
+        {
+          "name": "Mole",
+          "shipname": "Mole",
+          "type": "ship"
+        },
+        {
+          "name": "Ironclad Assault",
+          "shipname": "Ironclad Assault",
+          "type": "ship"
+        },
+        {
+          "name": "Arrastra",
+          "shipname": "Arrastra",
+          "type": "ship"
+        },
+        {
+          "name": "A.T.L.S.",
+          "shipname": "A.T.L.S.",
+          "type": "ship"
+        },
+        {
+          "name": "Mercury Star Runner",
+          "shipname": "Mercury Star Runner",
+          "type": "ship"
+        },
+        {
+          "name": "F7C-R Hornet Tracker Mk II",
+          "shipname": "F7C-R Hornet Tracker Mk II",
+          "type": "ship"
+        },
+        {
+          "name": "Fury",
+          "shipname": "Fury",
+          "type": "ship"
+        },
+        {
+          "name": "Fury MX",
+          "shipname": "Fury MX",
+          "type": "ship"
+        },
+        {
+          "name": "Cyclone RC",
+          "shipname": "Cyclone RC",
+          "type": "ship"
+        },
+        {
+          "name": "Sabre Comet",
+          "shipname": "Sabre Comet",
+          "type": "ship"
+        },
+        {
+          "name": "Sabre Firebird",
+          "shipname": "Sabre Firebird",
+          "type": "ship"
+        },
+        {
+          "name": "Crucible",
+          "shipname": "Crucible",
+          "type": "ship"
+        },
+        {
+          "name": "Cutlass Steel",
+          "shipname": "Cutlass Steel",
+          "type": "ship"
+        },
+        {
+          "name": "Reclaimer",
+          "shipname": "Reclaimer",
+          "type": "ship"
+        },
+        {
+          "name": "Nox",
+          "shipname": "Nox",
+          "type": "ship"
+        },
+        {
+          "name": "HoverQuad",
+          "shipname": "HoverQuad",
+          "type": "ship"
+        },
+        {
+          "name": "Starlancer MAX",
+          "shipname": "Starlancer MAX",
+          "type": "ship"
+        },
+        {
+          "name": "Starlancer TAC",
+          "shipname": "Starlancer TAC",
+          "type": "ship"
+        },
+        {
+          "name": "Liberator",
+          "shipname": "Liberator",
+          "type": "ship"
+        },
+        {
+          "name": "CSV-SM",
+          "shipname": "CSV-SM",
+          "type": "ship"
+        },
+        {
+          "name": "RAFT",
+          "shipname": "RAFT",
+          "type": "ship"
+        },
+        {
+          "name": "325a Fighter",
+          "shipname": "325a Fighter",
+          "type": "ship"
+        },
+        {
+          "name": "Centurion",
+          "shipname": "Centurion",
+          "type": "ship"
+        },
+        {
+          "name": "Apollo Triage",
+          "shipname": "Apollo Triage",
+          "type": "ship"
+        },
+        {
+          "name": "F8C Lightning",
+          "shipname": "F8C Lightning",
+          "type": "ship"
+        },
+        {
+          "name": "Paladin",
+          "shipname": "Paladin",
+          "type": "ship"
+        },
+        {
+          "name": "Terrapin Medic",
+          "shipname": "Terrapin Medic",
+          "type": "ship"
+        },
+        {
+          "name": "Prowler Utility",
+          "shipname": "Prowler Utility",
+          "type": "ship"
+        },
+        {
+          "name": "890 JUMP",
+          "shipname": "890 JUMP",
+          "type": "ship"
+        },
+        {
+          "name": "Guardian QI",
+          "shipname": "Guardian QI",
+          "type": "ship"
+        },
+        {
+          "name": "Guardian MX",
+          "shipname": "Guardian MX",
+          "type": "ship"
+        },
+        {
+          "name": "Hull B",
+          "shipname": "Hull B",
+          "type": "ship"
+        },
+        {
+          "name": "Fortune",
+          "shipname": "Fortune",
+          "type": "ship"
+        },
+        {
+          "name": "Dragonfly Black",
+          "shipname": "Dragonfly Black",
+          "type": "ship"
+        },
+        {
+          "name": "Prospector",
+          "shipname": "Prospector",
+          "type": "ship"
+        },
+        {
+          "name": "F7C-M Super Hornet Mk II",
+          "shipname": "F7C-M Super Hornet Mk II",
+          "type": "ship"
+        },
+        {
+          "name": "Spartan",
+          "shipname": "Spartan",
+          "type": "ship"
+        },
+        {
+          "name": "Storm AA",
+          "shipname": "Storm AA",
+          "type": "ship"
+        },
+        {
+          "name": "Constellation Phoenix Emerald",
+          "shipname": "Constellation Phoenix Emerald",
+          "type": "ship"
+        },
+        {
+          "name": "Ursa Rover Fortuna",
+          "shipname": "Ursa Rover Fortuna",
+          "type": "ship"
+        },
+        {
+          "name": "Cyclone MT",
+          "shipname": "Cyclone MT",
+          "type": "ship"
+        },
+        {
+          "name": "Ballista",
+          "shipname": "Ballista",
+          "type": "ship"
+        },
+        {
+          "name": "ATLS GEO",
+          "shipname": "ATLS GEO",
+          "type": "ship"
+        },
+        {
+          "name": "Golem",
+          "shipname": "Golem",
+          "type": "ship"
+        },
+        {
+          "name": "MTC",
+          "shipname": "MTC",
+          "type": "ship"
+        },
+        {
+          "name": "Asgard",
+          "shipname": "Asgard",
+          "type": "ship"
+        },
+        {
+          "name": "Idris-P Frigate",
+          "shipname": "Idris-P Frigate",
+          "type": "ship"
+        },
+        {
+          "name": "Endeavor",
+          "shipname": "Endeavor",
+          "type": "ship"
+        },
+        {
+          "name": "Starfarer Gemini",
+          "shipname": "Starfarer Gemini",
+          "type": "ship"
+        },
+        {
+          "name": "Redeemer",
+          "shipname": "Redeemer",
+          "type": "ship"
+        },
+        {
+          "name": "Hull C",
+          "shipname": "Hull C",
+          "type": "ship"
+        },
+        {
+          "name": "Retaliator",
+          "shipname": "Retaliator",
+          "type": "ship"
+        },
+        {
+          "name": "Eclipse",
+          "shipname": "Eclipse",
+          "type": "ship"
+        },
+        {
+          "name": "Vanguard Hoplite",
+          "shipname": "Vanguard Hoplite",
+          "type": "ship"
+        },
+        {
+          "name": "Vanguard Warden",
+          "shipname": "Vanguard Warden",
+          "type": "ship"
+        },
+        {
+          "name": "Vanguard Harbinger",
+          "shipname": "Vanguard Harbinger",
+          "type": "ship"
+        },
+        {
+          "name": "Vulcan",
+          "shipname": "Vulcan",
+          "type": "ship"
+        },
+        {
+          "name": "Cutlass Blue",
+          "shipname": "Cutlass Blue",
+          "type": "ship"
+        },
+        {
+          "name": "Terrapin",
+          "shipname": "Terrapin",
+          "type": "ship"
+        },
+        {
+          "name": "Gladius Valiant",
+          "shipname": "Gladius Valiant",
+          "type": "ship"
+        },
+        {
+          "name": "Sabre",
+          "shipname": "Sabre",
+          "type": "ship"
+        },
+        {
+          "name": "Gladiator",
+          "shipname": "Gladiator",
+          "type": "ship"
+        },
+        {
+          "name": "F7C-R Hornet Tracker Mk I",
+          "shipname": "F7C-R Hornet Tracker Mk I",
+          "type": "ship"
+        },
+        {
+          "name": "Gladius",
+          "shipname": "Gladius",
+          "type": "ship"
+        },
+        {
+          "name": "Avenger Stalker",
+          "shipname": "Avenger Stalker",
+          "type": "ship"
+        },
+        {
+          "name": "PTV",
+          "shipname": "PTV",
+          "type": "ship"
+        },
+        {
+          "name": "Ares Ion",
+          "shipname": "Ares Ion",
+          "type": "ship"
+        },
+        {
+          "name": "F7C-S Hornet Ghost Mk II",
+          "shipname": "F7C-S Hornet Ghost Mk II",
+          "type": "ship"
+        },
+        {
+          "name": "A1 Spirit",
+          "shipname": "A1 Spirit",
+          "type": "ship"
+        },
+        {
+          "name": "Storm",
+          "shipname": "Storm",
+          "type": "ship"
+        },
+        {
+          "name": "Constellation Taurus",
+          "shipname": "Constellation Taurus",
+          "type": "ship"
+        },
+        {
+          "name": "C1 Spirit",
+          "shipname": "C1 Spirit",
+          "type": "ship"
+        },
+        {
+          "name": "Mantis",
+          "shipname": "Mantis",
+          "type": "ship"
+        },
+        {
+          "name": "Hercules Starlifter A2",
+          "shipname": "Hercules Starlifter A2",
+          "type": "ship"
+        },
+        {
+          "name": "Hull A",
+          "shipname": "Hull A",
+          "type": "ship"
+        },
+        {
+          "name": "Nova Tank",
+          "shipname": "Nova Tank",
+          "type": "ship"
+        },
+        {
+          "name": "Ursa Medivac",
+          "shipname": "Ursa Medivac",
+          "type": "ship"
+        }
+      ]
+    },
+    {
+      "email": "rrezende@fgvmail.br",
+      "password": "$2a$10$/sLG9y/KAZukVKOllBNKxeTx1.ifj/Ok6G1P3sEFNpz9r977.wy7O",
+      "nickname": "Cucobr",
+      "admin": true,
+      "id": 3,
+      "authorized": true,
+      "accessToken": "VGC4-VV9Y-UY3S-LLWF-O40M-IP",
+      "ccu": [
+        {
+          "name": "Carrack Expedition with Pisces Expedition",
+          "shipname": "Carrack Expedition with Pisces Expedition",
+          "type": "ship"
+        },
+        {
+          "name": "PTV",
+          "shipname": "PTV",
+          "type": "ship"
+        },
+        {
+          "name": "PTV",
+          "shipname": "PTV",
+          "type": "ship"
+        },
+        {
+          "name": "Aurora ES",
+          "shipname": "Aurora ES",
+          "type": "ship"
+        },
+        {
+          "name": "Scorpius",
+          "shipname": "Scorpius",
+          "type": "ship"
+        },
+        {
+          "name": "Centurion",
+          "shipname": "Centurion",
+          "type": "ship"
+        },
+        {
+          "name": "Hull A",
+          "shipname": "Hull A",
+          "type": "ship"
+        },
+        {
+          "name": "Dragonfly Black",
+          "shipname": "Dragonfly Black",
+          "type": "ship"
+        },
+        {
+          "name": "Idris-P Frigate",
+          "shipname": "Idris-P Frigate",
+          "type": "ship"
+        },
+        {
+          "name": "E1 Spirit",
+          "shipname": "E1 Spirit",
+          "type": "ship"
+        },
+        {
+          "name": "Legionnaire",
+          "shipname": "Legionnaire",
+          "type": "ship"
+        },
+        {
+          "name": "Prospector",
+          "shipname": "Prospector",
+          "type": "ship"
+        },
+        {
+          "name": "Fury",
+          "shipname": "Fury",
+          "type": "ship"
+        },
+        {
+          "name": "Hull C",
+          "shipname": "Hull C",
+          "type": "ship"
+        },
+        {
+          "name": "Storm",
+          "shipname": "Storm",
+          "type": "ship"
+        },
+        {
+          "name": "Eclipse",
+          "shipname": "Eclipse",
+          "type": "ship"
+        },
+        {
+          "name": "Valkyrie",
+          "shipname": "Valkyrie",
+          "type": "ship"
+        },
+        {
+          "name": "Gladius",
+          "shipname": "Gladius",
+          "type": "ship"
+        },
+        {
+          "name": "HoverQuad",
+          "shipname": "HoverQuad",
+          "type": "ship"
+        },
+        {
+          "name": "Hull E",
+          "shipname": "Hull E",
+          "type": "ship"
+        },
+        {
+          "name": "Liberator",
+          "shipname": "Liberator",
+          "type": "ship"
+        },
+        {
+          "name": "Ironclad",
+          "shipname": "Ironclad",
+          "type": "ship"
+        },
+        {
+          "name": "Crucible",
+          "shipname": "Crucible",
+          "type": "ship"
+        },
+        {
+          "name": "Orion",
+          "shipname": "Orion",
+          "type": "ship"
+        },
+        {
+          "name": "F7A Hornet Mk II",
+          "shipname": "F7A Hornet Mk II",
+          "type": "ship"
+        },
+        {
+          "name": "Pulse LX",
+          "shipname": "Pulse LX",
+          "type": "ship"
+        },
+        {
+          "name": "Pulse",
+          "shipname": "Pulse",
+          "type": "ship"
+        },
+        {
+          "name": "Ursa Medivac",
+          "shipname": "Ursa Medivac",
+          "type": "ship"
+        },
+        {
+          "name": "MPUV Tractor",
+          "shipname": "MPUV Tractor",
+          "type": "ship"
+        },
+        {
+          "name": "Apollo Medivac",
+          "shipname": "Apollo Medivac",
+          "type": "ship"
+        },
+        {
+          "name": "F8C Lightning",
+          "shipname": "F8C Lightning",
+          "type": "ship"
+        },
+        {
+          "name": "Ranger RC",
+          "shipname": "Ranger RC",
+          "type": "ship"
+        },
+        {
+          "name": "Nox",
+          "shipname": "Nox",
+          "type": "ship"
+        },
+        {
+          "name": "A.T.L.S.",
+          "shipname": "A.T.L.S.",
+          "type": "ship"
+        },
+        {
+          "name": "A.T.L.S.",
+          "shipname": "A.T.L.S.",
+          "type": "ship"
+        },
+        {
+          "name": "Hull B",
+          "shipname": "Hull B",
+          "type": "ship"
+        },
+        {
+          "name": "Sabre Firebird",
+          "shipname": "Sabre Firebird",
+          "type": "ship"
+        },
+        {
+          "name": "CSV-SM",
+          "shipname": "CSV-SM",
+          "type": "ship"
+        },
+        {
+          "name": "F8C Lightning Executive Edition",
+          "shipname": "F8C Lightning Executive Edition",
+          "type": "ship"
+        },
+        {
+          "name": "Pioneer",
+          "shipname": "Pioneer",
+          "type": "ship"
+        },
+        {
+          "name": "Spartan",
+          "shipname": "Spartan",
+          "type": "ship"
+        },
+        {
+          "name": "Paladin",
+          "shipname": "Paladin",
+          "type": "ship"
+        },
+        {
+          "name": "Razor",
+          "shipname": "Razor",
+          "type": "ship"
+        },
+        {
+          "name": "Intrepid",
+          "shipname": "Intrepid",
+          "type": "ship"
+        },
+        {
+          "name": "F7C-M Super Hornet Mk II",
+          "shipname": "F7C-M Super Hornet Mk II",
+          "type": "ship"
+        },
+        {
+          "name": "Fortune",
+          "shipname": "Fortune",
+          "type": "ship"
+        },
+        {
+          "name": "ATLS GEO",
+          "shipname": "ATLS GEO",
+          "type": "ship"
+        },
+        {
+          "name": "ATLS GEO",
+          "shipname": "ATLS GEO",
+          "type": "ship"
+        },
+        {
+          "name": "Golem",
+          "shipname": "Golem",
+          "type": "ship"
+        },
+        {
+          "name": "ATLS GEO",
+          "shipname": "ATLS GEO",
+          "type": "ship"
+        },
+        {
+          "name": "MTC",
+          "shipname": "MTC",
+          "type": "ship"
+        },
+        {
+          "name": "MTC",
+          "shipname": "MTC",
+          "type": "ship"
+        },
+        {
+          "name": "Syulen",
+          "shipname": "Syulen",
+          "type": "ship"
+        },
+        {
+          "name": "Talon",
+          "shipname": "Talon",
+          "type": "ship"
+        },
+        {
+          "name": "Talon Shrike",
+          "shipname": "Talon Shrike",
+          "type": "ship"
+        },
+        {
+          "name": "Prowler",
+          "shipname": "Prowler",
+          "type": "ship"
+        },
+        {
+          "name": "Prowler Utility",
+          "shipname": "Prowler Utility",
+          "type": "ship"
+        },
+        {
+          "name": "Defender",
+          "shipname": "Defender",
+          "type": "ship"
+        },
+        {
+          "name": "Nox",
+          "shipname": "Nox",
+          "type": "ship"
+        },
+        {
+          "name": "Khartu-al",
+          "shipname": "Khartu-al",
+          "type": "ship"
+        },
+        {
+          "name": "Vanduul Glaive",
+          "shipname": "Vanduul Glaive",
+          "type": "ship"
+        },
+        {
+          "name": "Vanduul Blade",
+          "shipname": "Vanduul Blade",
+          "type": "ship"
+        },
+        {
+          "name": "San'tok.yāi",
+          "shipname": "San'tok.yāi",
+          "type": "ship"
+        },
+        {
+          "name": "Merchantman",
+          "shipname": "Merchantman",
+          "type": "ship"
+        },
+        {
+          "name": "Railen",
+          "shipname": "Railen",
+          "type": "ship"
+        }
+      ]
+    }
+  ],
+  "fleet": []
+}

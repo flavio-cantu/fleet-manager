@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h2>{{ 'SPACESHIP_FORM.TITLE' | translate }}</h2>
+        </div>
+        <div class="card-body">
+          <app-form [formGroup]="spaceshipForm" [form]="spaceshipForm" (submit)="onSubmit()"
+            [errorMessages]="errorMessage" [submitting]="submitting" [charging]="loading">
+
+            <div class="mb-3">
+              <app-select-field id="name" label="SPACESHIP_FORM.NAME" formControlName="name" title="SPACESHIP_FORM.NAME"
+                [formGroup]="spaceshipForm" [control]="spaceshipForm.get('name')" [submitted]="submitted()">
+                @for (ships of avaliableShips; track $index) {
+                <option [value]="ships">{{ships}}</option>
+                }
+              </app-select-field>
+            </div>
+
+            <div class="mb-3">
+              <app-input-field id="nickname" label="SPACESHIP_FORM.NICKNAME" formControlName="nickname"
+                [control]="spaceshipForm.get('nickname')" [submitted]="submitted()" />
+            </div>
+
+            <div class="mb-3">
+              <app-input-field id="quantity" label="SPACESHIP_FORM.QUANTITY" type="number" formControlName="quantity"
+                title="SPACESHIP_FORM.QUANTITY" [control]="spaceshipForm.get('quantity')" [submitted]="submitted()" />
+            </div>
+
+          </app-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

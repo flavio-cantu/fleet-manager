@@ -4,14 +4,14 @@ module.exports = {
         const authHeader = req.headers.authorization;
 
         if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            return res.status(401).json({ error: 'ERRO.USER.NOTSIGNED' });
+            return res.status(401).json({ error: 'ERROR.USER.NOTSIGNED' });
         }
 
         const token = authHeader.replace('Bearer ', '');
         const auth = server.db.get('oauth').filter({ token }).value();
 
         if (auth.length !== 1) {
-            return res.status(403).json({ error: 'ERRO.USER.NOTSIGNED' });
+            return res.status(403).json({ error: 'ERROR.USER.NOTSIGNED' });
         }
 
         next();
@@ -20,13 +20,13 @@ module.exports = {
         const authHeader = req.headers.authorization;
 
         if (!authHeader) {
-            return res.status(401).json({ error: 'ERRO.USER.NOTSIGNED' });
+            return res.status(401).json({ error: 'ERROR.USER.NOTSIGNED' });
         }
 
         const user = server.db.get('users').filter({ accessToken: authHeader }).value();
 
         if (user.length !== 1) {
-            return res.status(403).json({ error: 'ERRO.USER.NOTSIGNED' });
+            return res.status(403).json({ error: 'ERROR.USER.NOTSIGNED' });
         }
 
         next();
@@ -39,7 +39,7 @@ module.exports = {
             return next();
         }
 
-        return res.status(406).json({ error: 'ERRO.USER.WAIT_APPROVAL' });
+        return res.status(406).json({ error: 'ERROR.USER.WAIT_APPROVAL' });
     },
     needAdmin: (server) => (req, res, next) => {
         const userId = searchOnTokenIdUser(req.headers.authorization);
@@ -49,7 +49,7 @@ module.exports = {
             return next();
         }
 
-        return res.status(403).json({ error: 'ERRO.USER.NOTSIGNED' });
+        return res.status(403).json({ error: 'ERROR.USER.NOTSIGNED' });
     },
     getIdUser: (authHeader) => {
         return searchOnTokenIdUser(authHeader);

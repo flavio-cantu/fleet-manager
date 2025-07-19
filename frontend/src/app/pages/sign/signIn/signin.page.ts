@@ -1,36 +1,31 @@
-import { Component, signal } from "@angular/core"
-import { CommonModule } from "@angular/common"
-import { ReactiveFormsModule, FormGroup, FormControl, Validators } from "@angular/forms"
-import { Router, RouterModule } from "@angular/router"
+import { Component, signal, ViewEncapsulation } from "@angular/core"
+import { FormGroup, FormControl, Validators } from "@angular/forms"
+import { Router } from "@angular/router"
 import { AuthService } from "../../../services/auth.service"
-import { LanguageSwitcherComponent } from "../../../components/language-switcher/language-switcher.component"
-import { TranslateModule } from "@ngx-translate/core"
-import { InputFieldComponent } from "../../../components/input/app-input.component"
-import { TranslatorService } from "../../../services/translator.service"
+import { SharedModule } from "../../../modules/shared/shared.module"
+import { BackendError } from "../../../models/error.model"
 
 @Component({
   selector: "page-signin",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, TranslateModule, LanguageSwitcherComponent, InputFieldComponent],
+  imports: [SharedModule],
   templateUrl: "./signin.page.html",
   styleUrls: ["./signin.page.scss"],
+  encapsulation: ViewEncapsulation.None,
+
 })
 export class SignInPage {
   submitted = signal(false);
 
   loginForm: FormGroup
 
-  loading = false
-  errorMessage = ""
+  submitting = false
+  errorMessage?: BackendError | null;
 
   constructor(
     private authService: AuthService,
-    private router: Router,
-    private translator: TranslatorService
+    private router: Router
   ) {
-    //406 Not Acceptable
-
-    // Redirect if already logged in
     if (this.authService.isLoggedIn()) {
       this.router.navigate(["/spaceships"])
     }
@@ -49,8 +44,18 @@ export class SignInPage {
       return
     }
 
-    this.loading = true
-    this.errorMessage = ""
+    this.submitting = true
+    const errors = [];
+
+    if (this.loginForm.invalid) {
+      errors.push('ERROR.FORM.INVALID');
+    }
+
+
+    if (errors.length != 0) {
+      this.errorMessage = { frontErrors: errors };
+      return;
+    }
 
     const { email, password, remember } = this.loginForm.value
 
@@ -58,13 +63,12 @@ export class SignInPage {
       next: () => {
         this.router.navigate(["/spaceships"])
       },
-      error: (errorCode) => {
-        this.errorMessage = this.translator.translate(errorCode);
-        this.loading = false
+      error: (errors) => {
+        this.errorMessage = errors;
+        this.submitting = false
       },
       complete: () => {
-        console.log('complete')
-        this.loading = false
+        this.submitting = false
       },
     })
   }

@@ -8,7 +8,8 @@
         <h2>{{ 'SIGNUP.TITLE' | translate }}</h2>
       </div>
       <div class="card-body">
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <app-form [formGroup]="signupForm" [form]="signupForm" (submit)="onSubmit()" [errorMessages]="errorMessage"
+          [submitting]="submitting">
           <div class="mb-3">
             <app-input-field id="nickname" label="SIGNUP.NICKNAME" formControlName="nickname" title="SIGNUP.NICKNAME"
               [control]="signupForm.get('nickname')" [submitted]="submitted()" />
@@ -29,16 +30,7 @@
               formControlName="confirmPassword" title="SIGNUP.CONFIRM_PASSWORD"
               [control]="signupForm.get('confirmPassword')" [submitted]="submitted()" />
           </div>
-
-          <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary" [disabled]="loading || signupForm.invalid">
-              <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
-              {{ 'SIGNUP.SUBMIT' | translate }}
-            </button>
-          </div>
-
-          <div *ngIf="errorMessage" class="mt-3 alert alert-danger">{{ errorMessage }}</div>
-        </form>
+        </app-form>
       </div>
       <div class="card-footer text-center">
         <p class="mb-0">

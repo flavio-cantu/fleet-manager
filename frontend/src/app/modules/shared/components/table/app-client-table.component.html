@@ -1,0 +1,58 @@
+<div *ngIf="loading" class="text-center my-5">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">{{ 'COMMON.LOADING' | translate }}</span>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="!loading && list.length === 0" class="alert alert-info">
+  {{ labelNoRecords | translate }}
+</div>
+
+@if(!loading && list.length !== 0){
+<div class="table-responsive ">
+  <div class="text-end">
+    <button *ngIf="exportCsv" class="btn btn-outline-primary me-2" (click)="exportCSV()">
+      <span class="bi bi-cloud-arrow-down-fill"></span>
+    </button>
+    <button *ngIf="allowChangeTable" class="btn btn-outline-primary" (click)="modalSettings()">
+      <span class="bi bi-gear-fill"></span>
+    </button>
+  </div>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-table">
+
+    @for (column of columnsProperties; track $index) {
+    <ng-container [matColumnDef]="column.field">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column.name | translate }} </th>
+      <td mat-cell *matCellDef="let row">
+        @if(isCpfCnpj(column.name)){
+        {{row[column.field] | cpfCnpjMask}}
+        }@else{
+        {{row[column.field]}}
+        }
+      </td>
+    </ng-container>
+    }
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'COMMON.ACTIONS'| translate }} </th>
+      <td mat-cell *matCellDef=" let row " class=" text-end">
+        @for (action of actions; track $index) {
+        <button class="btn btn-primary me-2" (click)="action.callback(row)" [title]="action.label | translate">
+          <span [class]="action.icon"></span>
+        </button>
+        }
+        <ng-container *ngTemplateOutlet="customActionContent; context: { $implicit: row }"></ng-container>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsField"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsField;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+</div>
+}

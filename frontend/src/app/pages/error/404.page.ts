@@ -8,10 +8,10 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [RouterLink, TranslateModule],
   template: `
     <div class="error-container">
-      <h1>404 - {{'ERRO.PAGE.NOT_FOUND'|translate}}</h1>
-      <p>{{'ERRO.PAGE.NOT_FOUND_DESCRIPTION'|translate}}</p>
+      <h1>404 - {{'ERROR.PAGE.NOT_FOUND'|translate}}</h1>
+      <p>{{'ERROR.PAGE.NOT_FOUND_DESCRIPTION'|translate}}</p>
       <p>
-        <a routerLink="/" class="home-link">{{'ERRO.PAGE.RETURN'|translate}}</a>
+        <a routerLink="/" class="home-link">{{'ERROR.PAGE.RETURN'|translate}}</a>
       </p>
     </div>
   `,

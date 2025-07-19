@@ -11,6 +11,7 @@ import { httpAuthInterceptor } from './services/interceptor/interceptor.auth';
 import { httpErrorInterceptor } from './services/interceptor/interceptor.error';
 import { TranslatorService } from './services/translator.service';
 import { CookieService } from './services/cookie.service';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -34,6 +35,7 @@ export const appConfig: ApplicationConfig = {
     withInterceptors([httpErrorInterceptor, httpAuthInterceptor])
   ),
   provideAnimations(),
+  provideEnvironmentNgxMask(),
     ApiService,
     TranslatorService,
     CookieService

@@ -31,7 +31,7 @@ server.post('/login',
         const { email } = req.body;
         const user = server.db.get('users').find({ email }).value();
         if (!user) {
-            return res.status(401).json({ error: 'ERRO.USER.NOTFOUND' });
+            return res.status(401).json({ error: 'ERROR.USER.NOTFOUND' });
         }
         res.send = parseMessage(res, 'login')
         next();
@@ -373,9 +373,9 @@ function parseMessage(res, path) {
             //Error message
             errorCode = JSON.parse(body)
             if (errorCode === 'Email already exists') {
-                errorCode = 'ERRO.EMAIL.EXISTS'
+                errorCode = 'ERROR.EMAIL.EXISTS'
             } else if (errorCode === 'Invalid password') {
-                errorCode = 'ERRO.PASSWORD.INVALID'
+                errorCode = 'ERROR.PASSWORD.INVALID'
             }
 
             return originalSend.call(this, JSON.stringify({ code: errorCode }));

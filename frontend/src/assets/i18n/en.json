@@ -2,7 +2,9 @@
   "COMMON": {
     "LOADING": "Loading...",
     "CANCEL": "Cancel",
-    "DELETE": "Delete"
+    "DELETE": "Delete",
+    "SUBMIT": "Submit",
+    "ACTIONS": "Actions"
   },
   "LOGIN": {
     "TITLE": "Login",
@@ -109,7 +111,7 @@
         "3": "Extract the ZIP file",
         "4": "Open Chrome and go to the Extensions page by typing chrome://extensions/ in the address bar.",
         "5": "Enable Developer mode by toggling the switch in the top right corner of the page.",
-        "6": "Click the \"Load unpacked\" button and select the folder that contains the extracted files.",
+        "6": "Click the \"Load unpacked\" button and select the folder that conins the extracted files.",
         "7": "The extension will be installed and appear in the Extensions page.",
         "8": "Now, just access a NEW page at: https://ccugame.app/your-items/fleet.",
         "9": "It may take a few minutes for your list to appear here in the guild fleet."
@@ -125,7 +127,7 @@
     "EMAIL": "Email invalid",
     "PATTERN": "Pattern invalid"
   },
-  "ERRO": {
+  "ERROR": {
     "PAGE": {
       "RETURN": "Back to home page",
       "RETURN_LOGIN": "Back to login page",
@@ -136,6 +138,9 @@
       "WAIT_APPROVAL": "User awaiting approval",
       "WAIT_APPROVAL_DESCRIPTION": "You have already registered, just wait for one of the administrators to grant access. If it takes a while, talk to an administrator on discord"
     },
+    "FORM": {
+      "INVALID": "Required fields not fulfilled"
+    },
     "USER": {
       "NOTFOUND": "User do not exists"
     },
@@ -144,6 +149,15 @@
     },
     "EMAIL": {
       "EXISTS": "Email already exists"
+    }
+  },
+  "COMPONENT": {
+    "TABLE": {
+      "ITENS_PER_PAGE": "Itens per page",
+      "NEXT_PAGE": "Nex",
+      "PREV_PAGE": "Prev",
+      "FIRST_PAGE": "First",
+      "LAST_PAGE": "Last"
     }
   }
 }

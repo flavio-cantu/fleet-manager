@@ -1,0 +1,53 @@
+.mat-mdc-table {
+    background-color: white !important;
+}
+
+.mat-mdc-cell,
+.mat-sort-header-content,
+.mat-mdc-paginator-container,
+.mat-mdc-select,
+.mat-mdc-option,
+.mat-mdc-tooltip-surface {
+    font-family: sans-serif !important;
+}
+
+.mat-mdc-header-cell {
+    background-color: orange !important;
+}
+
+.mat-mdc-paginator-outer-container {
+    background-color: white;
+}
+
+
+.mat-mdc-header-cell,
+.mat-table {
+    color: white;
+    border: 1px solid white !important;
+}
+
+.mat-mdc-cell {
+    border: 1px solid orange !important;
+}
+
+.mat-table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mat-mdc-paginator-outer-container {
+    margin-top: -1px;
+    border-top: 1px solid orange !important;
+}
+
+.mat-sort-header-arrow {
+    color: white !important;
+}
+
+.mat-mdc-paginator-icon {
+    fill: orange !important;
+}
+
+.mat-mdc-icon-button[aria-disabled] .mat-mdc-paginator-icon {
+    fill: gray !important;
+}

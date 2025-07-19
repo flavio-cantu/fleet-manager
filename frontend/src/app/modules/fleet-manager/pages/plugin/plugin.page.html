@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>{{ 'PLUGIN.TITLE' | translate }}</h1>
+  </div>
+
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">{{ 'COMMON.LOADING' | translate }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div class="mt-3 mb-3">
+    <span style="font-size:1rem">
+      <span class="text-danger text-uppercase font-weight-bold" style="font-size:1.2rem">
+        {{ 'PLUGIN.WARNING' | translate
+        }}</span>
+      {{ 'PLUGIN.WARNING_DESCRIPTION' | translate }}
+    </span>
+    <p>
+      {{ 'PLUGIN.INFO_DESCRIPTION' | translate }}
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col">
+          <h2>{{ 'PLUGIN.CHROME.TITLE' | translate }}</h2>
+        </div>
+        <div class="col">
+          <div class="d-flex flex-row-reverse mt-1">
+            <button class="btn btn-primary" (click)="download()">
+              {{ 'PLUGIN.DOWNLOAD' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p>1. {{ 'PLUGIN.CHROME.INSTRUCTIONS.1' | translate }}</p>
+      <p>2. {{ 'PLUGIN.CHROME.INSTRUCTIONS.2' | translate }}</p>
+      <p>3. {{ 'PLUGIN.CHROME.INSTRUCTIONS.3' | translate }}</p>
+      <p>4. {{ 'PLUGIN.CHROME.INSTRUCTIONS.4' | translate }}</p>
+      <p>5. {{ 'PLUGIN.CHROME.INSTRUCTIONS.5' | translate }}</p>
+      <p>6. {{ 'PLUGIN.CHROME.INSTRUCTIONS.6' | translate }}</p>
+      <p>7. {{ 'PLUGIN.CHROME.INSTRUCTIONS.7' | translate }}</p>
+      <p>8. {{ 'PLUGIN.CHROME.INSTRUCTIONS.8' | translate }}</p>
+      <p>9. {{ 'PLUGIN.CHROME.INSTRUCTIONS.9' | translate }}</p>
+    </div>
+  </div>
+</div>

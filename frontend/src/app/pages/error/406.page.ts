@@ -8,10 +8,10 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [RouterLink, TranslateModule],
   template: `
     <div class="error-container">
-      <h1 class="text-success">{{'ERRO.PAGE.WAIT_APPROVAL'|translate}}</h1>
-      <p>{{'ERRO.PAGE.WAIT_APPROVAL_DESCRIPTION'|translate}}</p>
+      <h1 class="text-success">{{'ERROR.PAGE.WAIT_APPROVAL'|translate}}</h1>
+      <p>{{'ERROR.PAGE.WAIT_APPROVAL_DESCRIPTION'|translate}}</p>
       <p>
-        <a routerLink="/login" class="home-link">{{'ERRO.PAGE.RETURN_LOGIN'|translate}}</a>
+        <a routerLink="/login" class="home-link">{{'ERROR.PAGE.RETURN_LOGIN'|translate}}</a>
       </p>
     </div>
   `,

@@ -1,27 +1,26 @@
-import { Component, signal } from "@angular/core"
-import { CommonModule } from "@angular/common"
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from "@angular/forms"
-import { Router, RouterModule } from "@angular/router"
+import { Component, signal, ViewEncapsulation } from "@angular/core"
+import { FormBuilder, FormGroup, Validators } from "@angular/forms"
+import { Router } from "@angular/router"
 import { AuthService } from "../../../services/auth.service"
-import { LanguageSwitcherComponent } from "../../../components/language-switcher/language-switcher.component"
-import { TranslateModule } from "@ngx-translate/core"
-import { InputFieldComponent } from "../../../components/input/app-input.component"
 import { TranslatorService } from "../../../services/translator.service"
+import { SharedModule } from "../../../modules/shared/shared.module"
+import { BackendError } from "../../../models/error.model"
 
 @Component({
   selector: "page-signup",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, TranslateModule, LanguageSwitcherComponent, InputFieldComponent],
+  imports: [SharedModule],
   templateUrl: "./signup.page.html",
   styleUrls: ["./signup.page.scss"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SignupPage {
   signupForm: FormGroup
 
   submitted = signal(false);
 
-  loading = false
-  errorMessage = ""
+  submitting = false
+  errorMessage?: BackendError | null;
 
   constructor(
     private fb: FormBuilder,
@@ -29,7 +28,6 @@ export class SignupPage {
     private router: Router,
     private translator: TranslatorService
   ) {
-    // Redirect if already logged in
     if (this.authService.isLoggedIn()) {
       this.router.navigate(["/login"])
     }
@@ -45,18 +43,24 @@ export class SignupPage {
 
   onSubmit(): void {
     this.submitted.set(true);
+
+
+    const errors = [];
     if (this.signupForm.invalid) {
-      return
+      errors.push('ERROR.FORM.INVALID');
     }
 
     const { password, confirmPassword } = this.signupForm.value
     if (password !== confirmPassword) {
-      this.errorMessage = this.translator.translate("SIGNUP.PASSWORDS_DONT_MATCH")
-      return
+      errors.push('SIGNUP.PASSWORDS_DONT_MATCH');
     }
 
-    this.loading = true
-    this.errorMessage = ""
+    if (errors.length != 0) {
+      this.errorMessage = { frontErrors: errors };
+      return;
+    }
+
+    this.submitting = true
 
     this.authService
       .signup(this.signupForm.value)
@@ -64,12 +68,12 @@ export class SignupPage {
         next: () => {
           this.router.navigate(["/spaceships"])
         },
-        error: (errorCode) => {
-          this.errorMessage = this.translator.translate(errorCode);
-          this.loading = false
+        error: (errors) => {
+          this.errorMessage = errors;
+          this.submitting = false
         },
         complete: () => {
-          this.loading = false
+          this.submitting = false
         },
       })
   }

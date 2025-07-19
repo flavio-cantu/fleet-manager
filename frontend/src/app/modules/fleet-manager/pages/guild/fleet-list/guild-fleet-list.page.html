@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row mb-4">
+    <div class="col">
+      <h1>{{ 'GUILD_SPACESHIP_LIST.TITLE' | translate }}</h1>
+    </div>
+    <div class="col text-end">
+      <button class="btn btn-outline-primary me-3" (click)="downloadFleetView('guild')">
+        {{ 'GUILD_SPACESHIP_LIST.FLEETVIEW' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <app-client-table id="GUILD_FLEET_VIEW" [loading]="loading" [errorMessage]="errorMessage" [list]="spaceships"
+    [columnsProperties]="columnsFleet" labelNoRecords="SPACESHIP_LIST.NO_SPACESHIPS" />
+
+
+</div>

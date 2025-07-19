@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <form (ngSubmit)="onSubmit()">
+      <div class="card">
+        <div *ngIf="formTitle" class="card-header">
+          <div class="row">
+            <div class="col">
+              <h1>{{ formTitle | translate }}</h1>
+            </div>
+            <div *ngIf="backPath" class="col text-end">
+              <a (click)="back()" class="btn btn-primary mt-2">
+                {{ 'COMMON.BACK' | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          @if(charging){
+          <div class="text-center my-5">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">{{ 'COMMON.LOADING' | translate }}</span>
+            </div>
+          </div>
+          }@else{
+          <ng-content></ng-content>
+          }
+        </div>
+      </div>
+
+
+      @if (errorMessages != null){
+      <div *ngIf="(errorMessages.errors && errorMessages.errors?.length != 0)
+      || (errorMessages.frontErrors && errorMessages.frontErrors?.length != 0)"
+        class="container border-bottom mb-3 pb-4 pt-2">
+        <div class="alert alert-danger mt-3 mb-0">
+          <ul class="list-group list-group-flush list-group-item-danger">
+            @for (errorFront of errorMessages.frontErrors; track $index) {
+            <li class="list-group-item">{{ errorFront | translate }}</li>
+            }
+            @for (error of errorMessages.errors; track $index) {
+            <li class="list-group-item">{{ error }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div class="container  mb-3 pb-2 " *ngIf="errorMessages.warnings && errorMessages.warnings?.length != 0">
+        <h4>{{'MODAL.WARNING_DESCRIPTION' | translate}}</h4>
+
+        <div class="alert alert-warning mt-3 mb-0">
+          <ul class="list-group list-group-flush list-group-numbered list-group-item-warning">
+            @for (warning of errorMessages.warnings; track $index) {
+            <li class="list-group-item">{{ warning }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+      }
+
+      <div *ngIf="!charging" class="d-grid gap-2 mt-3 ">
+        <button type="submit" class="btn btn-primary" [disabled]="submitting">
+          <span *ngIf="submitting" class="spinner-border spinner-border-sm me-2"></span>
+          {{ submitTitle | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

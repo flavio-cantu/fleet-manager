@@ -1,0 +1,15 @@
+.mat-mdc-dialog-title,
+.mat-mdc-dialog-content,
+.mat-mdc-button-persistent-ripple,
+.mdc-button__label {
+    font-family: sans-serif !important;
+}
+
+.content-scroll {
+    overflow-y: auto;
+    max-height: calc(80vh - 130px);
+}
+
+.scrollable-list {
+    padding-top: 0;
+}

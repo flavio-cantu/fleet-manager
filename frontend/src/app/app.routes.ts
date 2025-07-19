@@ -18,31 +18,31 @@ export const routes: Routes = [
   {
     path: "spaceships",
     loadComponent: () =>
-      import("./pages/fleet/fleet-list/fleet-list.page").then((m) => m.FleetListPage),
+      import("./modules/fleet-manager/pages/fleet/fleet-list/fleet-list.page").then((m) => m.FleetListPage),
     canActivate: [AuthGuard],
   },
   {
     path: "spaceships/new",
     loadComponent: () =>
-      import("./pages/fleet/fleet-form/fleet-form.page").then((m) => m.FleetFormPage),
+      import("./modules/fleet-manager/pages/fleet/fleet-form/fleet-form.page").then((m) => m.FleetFormPage),
     canActivate: [AuthGuard],
   },
   {
     path: "plugin",
     loadComponent: () =>
-      import("./pages/plugin/plugin.page").then((m) => m.PluginPage),
+      import("./modules/fleet-manager/pages/plugin/plugin.page").then((m) => m.PluginPage),
     canActivate: [AuthGuard],
   },
   {
     path: "guild/users",
     loadComponent: () =>
-      import("./pages/guild/user-list/user-list.page").then((m) => m.UserListPage),
+      import("./modules/fleet-manager/pages/guild/user-list/user-list.page").then((m) => m.UserListPage),
     canActivate: [AdminGuard],
   },
   {
     path: "guild/fleet",
     loadComponent: () =>
-      import("./pages/guild/fleet-list/guild-fleet-list.page").then((m) => m.GuildFleetListPage),
+      import("./modules/fleet-manager/pages/guild/fleet-list/guild-fleet-list.page").then((m) => m.GuildFleetListPage),
     canActivate: [AdminGuard],
   },
   {
