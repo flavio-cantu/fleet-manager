@@ -11,4 +11,5 @@ export interface User {
   password: string
   authorized: boolean
   admin: boolean
+  authorizedText?: string
 }

@@ -1,13 +1,7 @@
 <div class="container">
 
-  <div *ngIf="loading" class="text-center my-5">
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">{{ 'COMMON.LOADING' | translate }}</span>
-    </div>
-  </div>
-
   <app-client-table id="USER_VIEW" [loading]="loading" [errorMessage]="errorMessage" [list]="users"
-    [columnsProperties]="columnsUser" labelNoRecords="SPACESHIP_LIST.NO_SPACESHIPS" [forceActions]="true"
+    [columnsProperties]="columnsUser" labelNoRecords="USER_LIST.NO_USERS" [forceActions]="true"
     [customActionContent]="customActionContent">
   </app-client-table>
 
@@ -23,36 +17,4 @@
     </button>
   </ng-template>
 
-  <!--
-  <div *ngIf="!loading && users.length > 0" class="table-responsive">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th>{{ 'USER_LIST.NICKNAME' | translate }}</th>
-          <th>{{ 'USER_LIST.EMAIL' | translate }}</th>
-          <th>{{ 'USER_LIST.AUTHORIZED' | translate }}</th>
-          <th class="text-end">{{ 'USER_LIST.ACTIONS' | translate }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td>{{ user.nickname }}</td>
-          <td>{{ user.email }}</td>
-          <td>
-            <span *ngIf="user.authorized" class="text-success">
-              {{ 'USER_LIST.AUTHORIZED' | translate}}
-            </span>
-            <span *ngIf="!user.authorized" class="text-danger">
-              {{ 'USER_LIST.UNAUTHORIZED' | translate}}
-            </span>
-
-          </td>
-          <td class="text-end">
-            
-
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    -->
 </div>

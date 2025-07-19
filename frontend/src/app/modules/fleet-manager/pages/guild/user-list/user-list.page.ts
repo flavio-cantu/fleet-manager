@@ -4,6 +4,7 @@ import { UserService } from "../../../../../services/user.service"
 import { ManagerModule } from "../../../fleet-manager.module"
 import { ModalService } from "../../../../shared/components/modal/modal.service"
 import { ActionsProperty, TableProperty } from "../../../../shared/components/table/app-client-table.component"
+import { TranslatorService } from "../../../../../services/translator.service"
 
 @Component({
   selector: "page-user-list",
@@ -26,13 +27,14 @@ export class UserListPage implements OnInit {
     field: 'email'
   }, {
     name: 'USER_LIST.AUTHORIZED',
-    field: 'authorized'
+    field: 'authorizedText'
   }
   ];
 
 
   constructor(private userService: UserService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private translator: TranslatorService
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +46,11 @@ export class UserListPage implements OnInit {
     this.userService.getUsers().subscribe({
       next: (users) => {
         this.users = users
+        this.users.forEach(user => {
+          user.authorizedText = user.authorized ?
+            this.translator.translate('USER_LIST.AUTHORIZED') :
+            this.translator.translate('USER_LIST.UNAUTHORIZED');
+        })
         this.loading = false
       },
       error: (errors) => {
