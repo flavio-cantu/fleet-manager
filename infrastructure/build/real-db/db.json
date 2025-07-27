@@ -10,7 +10,15 @@
     },
     {
       "id": 1,
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGF3cy5jb20iLCJpYXQiOjE3NTA3Nzk2NzEsImV4cCI6MTc1MDc4MzI3MSwic3ViIjoiMSJ9.h1LbsghuOfI18COl7GOs1wHXi5P25CQnh8iW9d07zI4"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGF3cy5jb20iLCJpYXQiOjE3NTE4MzY4NDgsImV4cCI6MTc1MTg0MDQ0OCwic3ViIjoiMSJ9.-c0TGzTjhFTlXuohoVcARAv1JAbE8VAo73Fs4hPibPo"
+    },
+    {
+      "id": 4,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGV1c3BtYWNlZG9AZ21haWwuY29tIiwiaWF0IjoxNzUxMTE3OTExLCJleHAiOjE3NTExMjE1MTEsInN1YiI6IjQifQ.9Z6ZK5rDgb1YSx7iSxJqpwir_e1wTItgAXXzyBpdKWc"
+    },
+    {
+      "id": 5,
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhaW9ibGFrMDIxQGdtYWlsLmNvbSIsImlhdCI6MTc1MTgzNjg3NiwiZXhwIjoxNzUxODQwNDc2LCJzdWIiOiI1In0.TACd-_7XqIeLnp2nBYvHiK8ye8mdUoCVmbiRDzYewaM"
     }
   ],
   "users": [
@@ -843,7 +851,132 @@
           "type": "ship"
         }
       ]
+    },
+    {
+      "email": "mateuspmacedo@gmail.com",
+      "password": "$2a$10$.i8LCsZ95CFV3nBh0G3qfOsfPhcs2VOKFkFkld5o.ybjytP6.YApC",
+      "nickname": "extrgmr",
+      "id": 4,
+      "authorized": true,
+      "admin": true,
+      "accessToken": "M5EC-X7OQ-CHDL-ZFHC-9U03-56",
+      "ccu": [
+        {
+          "name": "Constellation Andromeda",
+          "shipname": "Constellation Andromeda",
+          "type": "ship"
+        },
+        {
+          "name": "Galaxy",
+          "shipname": "Galaxy",
+          "type": "ship"
+        },
+        {
+          "name": "P-52 Merlin",
+          "shipname": "P-52 Merlin",
+          "type": "ship"
+        },
+        {
+          "name": "C8R Pisces",
+          "shipname": "C8R Pisces",
+          "type": "ship"
+        },
+        {
+          "name": "MPUV Tractor",
+          "shipname": "MPUV Tractor",
+          "type": "ship"
+        },
+        {
+          "name": "PTV",
+          "shipname": "PTV",
+          "type": "ship"
+        },
+        {
+          "name": "Ursa Medivac",
+          "shipname": "Ursa Medivac",
+          "type": "ship"
+        },
+        {
+          "name": "Pulse",
+          "shipname": "Pulse",
+          "type": "ship"
+        },
+        {
+          "name": "Zeus Mk II CL",
+          "shipname": "Zeus Mk II CL",
+          "type": "ship"
+        }
+      ]
+    },
+    {
+      "email": "caioblak021@gmail.com",
+      "password": "$2a$10$BVlfUagZ6znDCADpzsdS0.W4JAAlTmEQPuyymQ8R.BiT.s6bbNk2i",
+      "nickname": "Espectrall",
+      "id": 5,
+      "authorized": true,
+      "accessToken": "6SOJ-E3B3-DHC8-G83S-9KOZ-KY",
+      "ccu": [
+        {
+          "name": "Apollo Medivac",
+          "shipname": "Apollo Medivac",
+          "type": "ship"
+        },
+        {
+          "name": "Polaris",
+          "shipname": "Polaris",
+          "type": "ship"
+        },
+        {
+          "name": "Hercules Starlifter C2",
+          "shipname": "Hercules Starlifter C2",
+          "type": "ship"
+        },
+        {
+          "name": "Asgard",
+          "shipname": "Asgard",
+          "type": "ship"
+        },
+        {
+          "name": "Carrack",
+          "shipname": "Carrack",
+          "type": "ship"
+        },
+        {
+          "name": "C1 Spirit",
+          "shipname": "C1 Spirit",
+          "type": "ship"
+        }
+      ]
     }
   ],
-  "fleet": []
+  "fleet": [
+    {
+      "name": "Carrack",
+      "nickname": "",
+      "quantity": 1,
+      "userId": 4,
+      "id": 1
+    },
+    {
+      "name": "Javelin",
+      "nickname": "",
+      "quantity": 1,
+      "userId": 5,
+      "id": 2
+    },
+    {
+      "name": "Merchantman",
+      "nickname": "",
+      "quantity": 1,
+      "userId": 5,
+      "id": 3
+    },
+    {
+      "name": "Railen",
+      "nickname": "",
+      "quantity": 1,
+      "userId": 5,
+      "id": 4
+    }
+  ]
 }
