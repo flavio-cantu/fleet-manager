@@ -1,54 +1,45 @@
 import { Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
-import { AdminGuard } from './guards/admin.guard';
 import { WaitForApprovalPage } from './pages/error/406.page';
 import { UnauthorizedPage } from './pages/error/403.page';
 import { NotFoundPage } from './pages/error/404.page';
-
+import { AuthGuard } from './services/auth/auth.guard';
 
 export const routes: Routes = [
   {
-    path: "login",
-    loadComponent: () => import("./pages/sign/signIn/signin.page").then((m) => m.SignInPage),
-  },
-  {
-    path: "signup",
-    loadComponent: () => import("./pages/sign/signUp/signup.page").then((m) => m.SignupPage),
-  },
-  {
-    path: "spaceships",
+    path: 'client/new',
     loadComponent: () =>
-      import("./modules/fleet-manager/pages/fleet/fleet-list/fleet-list.page").then((m) => m.FleetListPage),
-    canActivate: [AuthGuard],
+      import('./modules/manager/pages/example/form/form-example.page').then(
+        (m) => m.ExampleFormPage
+      ),
+      canActivate: [AuthGuard],
   },
   {
-    path: "spaceships/new",
+    path: 'client/:id',
     loadComponent: () =>
-      import("./modules/fleet-manager/pages/fleet/fleet-form/fleet-form.page").then((m) => m.FleetFormPage),
-    canActivate: [AuthGuard],
+      import('./modules/manager/pages/example/form/form-example.page').then(
+        (m) => m.ExampleFormPage
+      ),
+      canActivate: [AuthGuard],
   },
   {
-    path: "plugin",
+    path: 'client',
     loadComponent: () =>
-      import("./modules/fleet-manager/pages/plugin/plugin.page").then((m) => m.PluginPage),
-    canActivate: [AuthGuard],
+      import('./modules/manager/pages/example/list/list-example.page').then(
+        (m) => m.ExampleListPage
+      ),
+      canActivate: [AuthGuard],
   },
   {
-    path: "guild/users",
+    path: 'login',
     loadComponent: () =>
-      import("./modules/fleet-manager/pages/guild/user-list/user-list.page").then((m) => m.UserListPage),
-    canActivate: [AdminGuard],
+      import('./modules/login/pages/form/form-login.page').then(
+        (m) => m.LoginFormPage
+      ),
   },
   {
-    path: "guild/fleet",
-    loadComponent: () =>
-      import("./modules/fleet-manager/pages/guild/fleet-list/guild-fleet-list.page").then((m) => m.GuildFleetListPage),
-    canActivate: [AdminGuard],
-  },
-  {
-    path: "",
-    redirectTo: "/login",
-    pathMatch: "full",
+    path: '',
+    redirectTo: '/client',
+    pathMatch: 'full',
   },
   {
     path: '403',
@@ -66,24 +57,6 @@ export const routes: Routes = [
   // Redirecionar para 404 quando a rota não existe
   {
     path: '**',
-    redirectTo: '404'
-  }
-]
-
-
-/*
-export const routes: Routes = [
-  {
-      path: 'sped',
-      loadChildren: () => import('./sped/sped.routes'),
+    redirectTo: '404',
   },
-  { path: '', redirectTo: '/sped/escrituracao', pathMatch: 'full' }, 
-//  { path: '**', redirectTo: '/' },
-
-
-path: 'sped',
-    loadChildren: () =>
-      import('./sped/sped.module').then((m) => m.SpedModule),
-    
 ];
-*/

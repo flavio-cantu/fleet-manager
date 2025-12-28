@@ -1,6 +1,12 @@
-<div class="container-fluid">
-    @if(showMenu()){
-    <app-nav></app-nav>
-    }
+<app-toast></app-toast>
+@if(loggedIn){
+  <app-nav></app-nav>
+}
+
+@if(showContent){
+<div class="main-content" [style.marginLeft]="getPageMargin()">
+  <div class="content-wrapper">
     <router-outlet></router-outlet>
+  </div>
 </div>
+}

@@ -1,0 +1,39 @@
+<div class="text-center mt-1 mb-1">
+    @if(isMobile){
+
+    <button
+            matButton
+            [matMenuTriggerFor]="menu"
+            class="btn btn-primary me-2 mt-1 mb-1"
+    >
+        <span class="bi bi-three-dots-vertical"></span>
+    </button>
+
+    <mat-menu #menu="matMenu" class="large-mat-menu">
+        @for (action of actions; track $index) { @if(shouldShowAction(action)){
+        <div class="row w-75 ms-4 mt-1 mb-1">
+            <button
+                    type="button"
+                    class="btn btn-outline-primary mat-column-actions"
+                    mat-menu-item
+                    (click)="handleAction(action, $event)"
+            >
+                <span [class]="action.icon"></span>
+                {{ action.label | translate }}
+            </button>
+        </div>
+        } }
+    </mat-menu>
+
+    }@else{ @for (action of actions; track $index) {
+    @if(shouldShowAction(action)){
+    <button
+            type="button"
+            class="btn btn-primary me-2"
+            (click)="handleAction(action, $event)"
+            [title]="action.label | translate"
+    >
+        <span [class]="action.icon"></span>
+    </button>
+    } } }
+</div>

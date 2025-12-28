@@ -1,0 +1,40 @@
+<div class="container mb-4 border-bottom pb-3">
+  <div class="row justify-content-center">
+    <form (ngSubmit)="onSubmit()">
+      @if(charging){
+      <div class="text-center my-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">{{
+            'COMMON.LOADING' | translate
+          }}</span>
+        </div>
+      </div>
+      }@else{
+      <ng-content></ng-content>
+      }
+
+      <div *ngIf="!charging" class="d-flex flex-row-reverse mt-3">
+        <button
+          *ngIf="showSubmitButton"
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="submitting"
+        >
+          <span
+            *ngIf="submitting"
+            class="spinner-border spinner-border-sm me-2"
+          ></span>
+          {{ submitTitle | translate }}
+        </button>
+
+        <button type="button" class="btn btn-secondary me-4" (click)="clear()">
+          <span
+            *ngIf="submitting"
+            class="spinner-border spinner-border-sm me-2"
+          ></span>
+          {{ 'COMMON.CLEAR' | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,5 @@
-# Cria a Hosted Zone
+# !!!!Cria a Hosted Zone!!!
+#Trocar para data!
 resource "aws_route53_zone" "main" {
   name = "shadowguardians.space"
 }
@@ -11,3 +12,5 @@ resource "aws_route53_record" "root" {
   ttl     = 300
   records = [aws_instance.shadow_guardian_instance.public_ip ]
 }
+
+#

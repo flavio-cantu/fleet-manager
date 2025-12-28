@@ -1,39 +1,172 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-  <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/spaceships">{{ 'NAV.TITLE' | translate }}</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
+<div 
+  class="sidebar"
+  [class.collapsed]="collapsed"
+  [class.expanded]="hover"
+  [style.width]="getSidebarWidth()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()">
+  
+
+  <!-- Header do Sidebar -->
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <i class="fas fa-rocket"></i>
+      @if (hover || !collapsed) {
+        <span class="logo-text">MyApp</span>
+      }
+    </div>
+    
+    <button class="sidebar-toggle" (click)="toggleCollapse()" title="Toggle Sidebar">
+      <i [class]="collapsed ? 'fas fa-chevron-right' : 'fas fa-chevron-left'"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/spaceships" routerLinkActive="active">
-            {{ 'NAV.SPACESHIPS' | translate }}
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/plugin" routerLinkActive="active">
-            {{ 'PLUGIN.MENU' | translate }}
-          </a>
-        </li>
-        <li *ngIf="isAdmin" class="nav-item">
-          <a class="nav-link" routerLink="/guild/fleet" routerLinkActive="active">
-            {{ 'NAV.GUILD_SHIPS' | translate }}
-          </a>
-        </li>
-        <li *ngIf="isAdmin" class="nav-item">
-          <a class="nav-link" routerLink="/guild/users" routerLinkActive="active">
-            {{ 'NAV.USERS' | translate }}
-          </a>
-        </li>
-      </ul>
-      <div class="d-flex align-items-center" *ngIf="currentUser">
-        <app-language-switcher class="me-3"></app-language-switcher>
-        <span class="text-light me-3">{{ currentUser.nickname }}</span>
-        <button class="btn btn-outline-light" (click)="logout()">
-          {{ 'NAV.LOGOUT' | translate }}
-        </button>
+  </div>
+
+  <!-- Menu Principal -->
+  <div class="sidebar-menu">
+    @for (item of menuItems; track item.id) {
+      <!-- Item SEM filhos -->
+      @if (!item.children) {
+        <div 
+          class="menu-item" 
+          [class.active]="item.active"
+          (click)="navigate(item.link)">
+          
+          <div class="menu-item-content">
+            <i [class]="item.icon + ' menu-icon'"></i>
+            
+            @if (hover || !collapsed) {
+              <span class="menu-label">{{ item.label }}</span>
+            }
+            
+            @if (item.badge && (hover || !collapsed)) {
+              <span class="menu-badge" [class]="item.badgeClass">{{ item.badge }}</span>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Item COM filhos -->
+      @if (item.children) {
+        <div 
+          class="menu-item has-children" 
+          [class.active]="item.active"
+          [class.expanded]="item.expanded">
+          
+          <div class="menu-item-content" (click)="toggleSubMenu(item)">
+            <i [class]="item.icon + ' menu-icon'"></i>
+            
+            @if (hover || !collapsed) {
+              <span class="menu-label">{{ item.label }}</span>
+            }
+            
+            @if (item.badge && (hover || !collapsed)) {
+              <span class="menu-badge" [class]="item.badgeClass">{{ item.badge }}</span>
+            }
+            
+            @if (hover || !collapsed) {
+              <i 
+                class="fas fa-chevron-right chevron" 
+                [class.rotated]="item.expanded">
+              </i>
+            }
+          </div>
+
+          <!-- Submenu Nível 1 -->
+          @if (item.expanded && (hover || !collapsed)) {
+            <div class="submenu level-1">
+              @for (child of item.children; track child.id) {
+                <!-- Subitem SEM netos -->
+                @if (!child.children) {
+                  <div 
+                    class="submenu-item"
+                    [class.active]="child.active"
+                    (click)="navigate(child.link)">
+                    
+                    <div class="submenu-item-content">
+                      <i [class]="child.icon + ' submenu-icon'"></i>
+                      <span class="submenu-label">{{ child.label }}</span>
+                      
+                      @if (child.badge) {
+                        <span class="submenu-badge" [class]="child.badgeClass">
+                          {{ child.badge }}
+                        </span>
+                      }
+                    </div>
+                  </div>
+                }
+
+                <!-- Subitem COM netos -->
+                @if (child.children) {
+                  <div 
+                    class="submenu-item has-grandchildren"
+                    [class.active]="child.active"
+                    [class.expanded]="child.expanded">
+                    
+                    <div class="submenu-item-content" (click)="toggleSubMenu(child)">
+                      <i [class]="child.icon + ' submenu-icon'"></i>
+                      <span class="submenu-label">{{ child.label }}</span>
+                      
+                      @if (child.badge) {
+                        <span class="submenu-badge" [class]="child.badgeClass">
+                          {{ child.badge }}
+                        </span>
+                      }
+                      
+                      <i 
+                        class="fas fa-chevron-right grand-chevron"
+                        [class.rotated]="child.expanded">
+                      </i>
+                    </div>
+
+                    <!-- Submenu Nível 2 -->
+                    @if (child.expanded) {
+                      <div class="submenu level-2">
+                        @for (grandchild of child.children; track grandchild.id) {
+                          <div 
+                            class="grandchild-item"
+                            [class.active]="grandchild.active"
+                            (click)="navigate(grandchild.link)">
+                            
+                            <i [class]="grandchild.icon + ' grandchild-icon'"></i>
+                            <span class="grandchild-label">{{ grandchild.label }}</span>
+                            
+                            @if (grandchild.badge) {
+                              <span class="grandchild-badge" [class]="grandchild.badgeClass">
+                                {{ grandchild.badge }}
+                              </span>
+                            }
+                          </div>
+                        }
+                      </div>
+                    }
+                  </div>
+                }
+              }
+            </div>
+          }
+        </div>
+      }
+    }
+  </div>
+
+  <!-- Footer com Perfil do Usuário -->
+  @if (hover || !collapsed) {
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <div class="user-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+        
+        <div class="user-info">
+          <div class="user-name">John Doe</div>
+          <div class="user-role">Administrator</div>
+        </div>
+        
+        <div class="user-actions" title="Configurações">
+          <i class="fas fa-cog"></i>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  }
+
+</div>

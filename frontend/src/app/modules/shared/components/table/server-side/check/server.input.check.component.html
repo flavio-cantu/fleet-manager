@@ -1,0 +1,13 @@
+@if(form){
+<div [formGroup]="form" class="row mt-2 mb-2">
+    <div class="form-check d-flex justify-content-center">
+        <input
+                class="form-check-input check-selection"
+                [formControl]="control"
+                [placeholder]="placeholder"
+                type="checkbox"
+                id="rowCheck"
+        />
+    </div>
+</div>
+}

@@ -1,0 +1,10 @@
+/backend/.idea/
+._*
+*/.vscode/
+/target/
+.idea/
+temp-db-/
+/temp-db-/
+/mer-diagram/schemaspy-output
+/.vscode/
+/.vscode

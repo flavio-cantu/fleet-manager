@@ -1,3 +1,372 @@
-.navbar {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+:host {
+  display: block;
+}
+
+/* Sidebar Principal */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #2c3e50 0%, #1a2530 100%);
+  color: #ecf0f1;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.sidebar-header {
+  padding: 20px 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.sidebar-logo i {
+  font-size: 1.8rem;
+}
+
+.logo-text {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ecf0f1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Menu Items */
+.sidebar-menu {
+  padding: 15px 0;
+}
+
+.menu-item {
+  padding: 0 15px;
+  margin: 2px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0;
+  position: relative;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item.active {
+  background: rgba(52, 152, 219, 0.2);
+  border-left: 3px solid #3498db;
+}
+
+.menu-item-content {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  position: relative;
+}
+
+.menu-icon {
+  width: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #bdc3c7;
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover .menu-icon,
+.menu-item.active .menu-icon {
+  color: #3498db;
+}
+
+.menu-label {
+  margin-left: 15px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  flex-grow: 1;
+}
+
+.menu-badge {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+.chevron {
+  margin-left: 10px;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.chevron.rotated {
+  transform: rotate(90deg);
+}
+
+/* Submenus */
+.submenu {
+  padding-left: 35px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.submenu.level-1 {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.submenu.level-2 {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: 3px 0;
+}
+
+.submenu-item {
+  margin: 1px 0;
+  border-radius: 3px;
+}
+
+.submenu-item-content {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submenu-item:hover .submenu-item-content {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.submenu-item.active .submenu-item-content {
+  background: rgba(52, 152, 219, 0.15);
+}
+
+.submenu-icon {
+  width: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #95a5a6;
+  margin-right: 10px;
+}
+
+.submenu-label {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  flex-grow: 1;
+}
+
+.submenu-badge {
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  border-radius: 8px;
+  margin-left: 5px;
+}
+
+.grand-chevron {
+  font-size: 0.7rem;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.grand-chevron.rotated {
+  transform: rotate(90deg);
+}
+
+.grandchild-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+}
+
+.grandchild-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.grandchild-item.active {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+}
+
+.grandchild-icon {
+  width: 14px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  margin-right: 10px;
+}
+
+.grandchild-label {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.grandchild-badge {
+  font-size: 0.6rem;
+  padding: 1px 4px;
+  border-radius: 6px;
+  margin-left: 5px;
+}
+
+/* Footer/User Profile */
+.sidebar-footer {
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.user-info {
+  flex-grow: 1;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: #bdc3c7;
+}
+
+.user-actions {
+  color: #bdc3c7;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.user-actions:hover {
+  color: #3498db;
+}
+
+/* Estados Colapsado/Expandido */
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar.collapsed .menu-label,
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .chevron,
+.sidebar.collapsed .sidebar-footer,
+.sidebar.collapsed .submenu,
+.sidebar.collapsed .user-profile {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.sidebar.expanded {
+  width: 250px;
+}
+
+.sidebar.expanded .menu-label,
+.sidebar.expanded .logo-text,
+.sidebar.expanded .chevron,
+.sidebar.expanded .sidebar-footer,
+.sidebar.expanded .submenu,
+.sidebar.expanded .user-profile {
+  opacity: 1;
+  visibility: visible;
+  max-height: 500px;
+}
+
+/* Quando sidebar expande, mostra submenu se item estiver ativo */
+.menu-item.expanded .submenu {
+  max-height: 500px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+}
+
+/* Scrollbar personalizada */
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
 }

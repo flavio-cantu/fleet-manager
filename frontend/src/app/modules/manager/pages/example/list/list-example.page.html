@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row mb-4">
+    <div class="col">
+      <h1>{{ 'EXAMPLE.LIST.TITLE' | translate }}</h1>
+    </div>
+    <div class="col text-end">
+      <a routerLink="/client/new" class="btn btn-primary">
+        {{ 'EXAMPLE.ADD' | translate }}
+      </a>
+    </div>
+  </div>
+
+  <app-search
+    [formGroup]="form"
+    [form]="form"
+    (submit)="search()"
+    [submitting]="submitting"
+  >
+    <div class="row mb-3">
+      <div class="col">
+        <app-input-field
+          id="businessName"
+          label="EXAMPLE.LIST.BUSINESS_NAME"
+          formControlName="businessName"
+          [control]="form.get('businessName')"
+          maxlength="100"
+        />
+      </div>
+      <div class="col-3">
+        <app-input-field
+          id="cnpj"
+          label="EXAMPLE.LIST.CNPJ"
+          formControlName="cnpj"
+          mask="99.999.999/9999-99"
+          [control]="form.get('cnpj')"
+          maxlength="18"
+        />
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col d-flex flex-row-reverse">
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            formControlName="activeOnly"
+            type="checkbox"
+            role="switch"
+            id="activeOnly"
+          />
+          @if(form.get('activeOnly')?.value){
+          <label class="form-check-label" for="flexSwitchCheckDefault">
+            {{'EXAMPLE.LIST.ACTIVE' | translate}}
+          </label>
+          }@else{
+          <label class="form-check-label" for="flexSwitchCheckDefault">
+            {{'EXAMPLE.LIST.ALL' | translate}}
+          </label>
+          }
+        </div>
+      </div>
+    </div>
+  </app-search>
+
+  <div *ngIf="deletedMessage" class="alert alert-info">{{deletedMessage}}</div>
+
+  <app-server-table
+    id="CONSULTA_CLIENTES"
+    [loading]="tableLoading"
+    [errorMessage]="listErrorMessage"
+    [list]="clients"
+    [qntRecords]="qntRecords"
+    [columnsProperties]="columns"
+    [actions]="actions"
+    labelNoRecords="EXAMPLE.LIST.NO_RECORDS"
+    (onSort)="onSortChange($event)"
+    (onPage)="onPaginationChange($event)"
+    (onExport)="onCsvExport($event)"
+  />
+</div>

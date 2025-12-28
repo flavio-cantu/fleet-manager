@@ -1,76 +1,94 @@
 @forward 'mat-style.scss';
+@forward 'ag-style.scss';
+@forward 'ng-select.scss';
 
 /* You can add global styles to this file, and also import other style files */
 .ng-invalid.ng-touched {
-    border-color: #dc3545;
+  border-color: #dc3545;
 }
 
 .is-invalid {
-    border-color: #dc3545;
+  border-color: #dc3545;
 }
 
 .invalid-feedback {
-    color: #dc3545;
-    font-size: 0.875em;
-    display: block;
+  color: #dc3545;
+  font-size: 0.875em;
+  display: block;
 }
 
 .form-text {
-    font-size: 0.875em;
-    color: #6c757d;
+  font-size: 0.875em;
+  color: #6c757d;
 }
 
 html,
 body {
-    height: 100%;
+  height: 100%;
+  min-width: 750px;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .btn-primary {
-    --bs-btn-bg: green !important;
-    --bs-btn-border-color: blue !important;
-    --bs-btn-hover-bg: rgb(238, 7, 7) !important;
-    --bs-btn-hover-border-color: blue !important;
+  --bs-btn-bg: rgb(6, 97, 105) !important;
+  --bs-btn-border-color: rgb(3, 50, 54) !important;
+  --bs-btn-hover-bg: rgba(10, 166, 181, 1) !important;
+  --bs-btn-hover-border-color: rgb(3, 50, 54) !important;
 }
 
-.btn-check:checked+.btn,
+.btn-check:checked + .btn,
 .btn.active,
 .btn.show,
 .btn:first-child:active,
-:not(.btn-check)+.btn:active {
-    background-color: rgb(238, 7, 7) !important;
-    border-color: blue !important;
+:not(.btn-check) + .btn:active {
+  background-color: rgba(10, 166, 181, 1) !important;
+  border-color: rgb(3, 50, 54) !important;
 }
 
 .btn.disabled,
 .btn:disabled,
 fieldset:disabled .btn {
-    background-color: green !important;
-    border-color: blue !important;
+  background-color: rgb(6, 97, 105) !important;
+  border-color: rgb(3, 50, 54) !important;
 }
 
 .btn-outline-primary {
-    --bs-btn-color: green !important;
-    --bs-btn-border-color: green !important;
-    --bs-btn-hover-bg: blue !important;
-    --bs-btn-hover-border-color: blue !important;
+  --bs-btn-color: rgb(6, 97, 105) !important;
+  --bs-btn-border-color: rgb(6, 97, 105) !important;
+  --bs-btn-hover-bg: rgb(3, 50, 54) !important;
+  --bs-btn-hover-border-color: rgb(3, 50, 54) !important;
 }
 
 .card-header {
-    background-color: white !important;
+  background-color: white !important;
 }
 
 .form-check-input:focus {
-    background-color: rgb(238, 7, 7) !important;
-    border-color: blue !important;
-    box-shadow: 0 0 0 .25rem rgba(255, 0, 0, 0.25) !important;
+  background-color: rgba(10, 166, 181, 1) !important;
+  border-color: rgb(3, 50, 54) !important;
+  box-shadow: 0 0 0 0.25rem rgba(3, 50, 54, 0.25) !important;
 }
 
 .form-check-input:checked {
-    background-color: green !important;
-    border-color: blue !important;
+  background-color: rgb(6, 97, 105) !important;
+  border-color: rgb(3, 50, 54) !important;
+}
+
+.container,
+body {
+  max-width: 100% !important;
+  min-width: 600px !important;
+}
+
+.container,
+.container-md,
+.container-sm {
+  @media (max-width: 750px) {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
 }

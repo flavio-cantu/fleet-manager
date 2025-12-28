@@ -1,0 +1,37 @@
+<app-form
+  [formGroup]="form"
+  [form]="form"
+  formTitle="LOGIN.FORM.TITLE"
+  (submit)="onSubmit()"
+  [errorMessages]="errorMessage"
+  [submitting]="submitting"
+  [charging]="charging"
+>
+  <div class="mb-3">
+    <div class="row mb-3">
+      <div class="col">
+        <app-input-field
+          id="user"
+          label="LOGIN.FORM.LOGIN"
+          formControlName="username"
+          [control]="form.get('username')"
+          [submitted]="submitted()"
+          maxlength="100"
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <app-input-field
+          id="pass"
+          type="password"
+          label="LOGIN.FORM.PASS"
+          formControlName="password"
+          [control]="form.get('password')"
+          [submitted]="submitted()"
+          maxlength="100"
+        />
+      </div>
+    </div>
+  </div>
+</app-form>

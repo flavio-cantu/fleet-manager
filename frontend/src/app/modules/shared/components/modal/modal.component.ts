@@ -20,32 +20,34 @@ export interface ModalOptions {
 
 export interface ModalAction {
   text: string;
-  css?: 'btn-danger' | 'btn-primary' | 'btn-secondary';
+  css?: 'btn-danger' | 'btn-primary' | 'btn-secondary' | 'btn-outline-primary';
   handler: (ref: MatDialogRef<ModalComponent>) => void;
 }
-
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule, MatIconModule, TranslateModule],
-  styleUrls: ['modal.scss'],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    TranslateModule,
+  ],
   template: `
-    <div class="modal" mat-dialog-title>
-      <h2 >{{ data.title | translate}}</h2>
+    <div mat-dialog-title>
+      <h2>{{ data.title | translate }}</h2>
     </div>
-    
+
     <mat-dialog-content>
-        {{ data.content | translate}}
+      {{ data.content | translate }}
     </mat-dialog-content>
-    
+
     <mat-dialog-actions align="end">
       @for (action of data.actions || []; track action.text) {
-        <button 
-          class="ms-2 btn {{action.css}}"
-          (click)="handleAction(action)">
-          {{ action.text | translate}}
-        </button>
+      <button class="ms-2 btn {{ action.css }}" (click)="handleAction(action)">
+        {{ action.text | translate }}
+      </button>
       }
     </mat-dialog-actions>
 
@@ -58,7 +60,7 @@ export class ModalComponent {
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ModalOptions
-  ) { }
+  ) {}
 
   handleAction(action: ModalAction) {
     action.handler(this.dialogRef);

@@ -1,0 +1,12 @@
+spring:
+  ldap:
+    base: DC=corp,DC=COMPANY,DC=com,DC=br
+    urls: ldaps://ldap.domain.com.br:636
+    domain: domain.com.br
+
+
+app:
+  jwt:
+    secret: 12341234123412341234123412341234
+    expiration: 86400000  # 24 horas em milissegundos
+

@@ -1,0 +1,54 @@
+<div *ngIf="loading" class="text-center my-5">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">{{ 'COMMON.LOADING' | translate }}</span>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<div
+  *ngIf="!errorMessage && !loading && list.length === 0"
+  class="alert alert-info"
+>
+  {{ labelNoRecords | translate }}
+</div>
+
+@if(!loading && list.length !== 0){
+<div class="table-responsive">
+  <div class="text-end">
+      <button
+              type="button"
+              class="btn btn-outline-primary me-2"
+              (click)="exportXlsx()"
+      >
+      <span class="bi bi-cloud-arrow-down-fill"></span>
+    </button>
+      <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="modalSettings()"
+      >
+      <span class="bi bi-gear-fill"></span>
+    </button>
+  </div>
+  <ag-grid-angular
+    class="mb-3 mt-2 table-grid"
+    style="width: 100%"
+    [columnDefs]="transformedColumns"
+    [rowData]="list"
+    [gridOptions]="gridOptions"
+    [theme]="themeQuartz"
+    domLayout="autoHeight"
+  />
+
+  <mat-paginator
+    [length]="qntRecords"
+    [pageSize]="pageSize"
+    (page)="onPageChange($event)"
+    [pageSizeOptions]="pageSizeOptions"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
+}

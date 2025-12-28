@@ -1,0 +1,14 @@
+@if(form){
+<div [formGroup]="form" class="row mt-2 mb-2">
+    <app-select-field
+            id="field"
+            [formControl]="control"
+            [list]="list"
+            [control]="control"
+            [bindLabel]="label"
+            [bindValue]="value"
+            [setModalMode]="true"
+    >
+    </app-select-field>
+</div>
+}

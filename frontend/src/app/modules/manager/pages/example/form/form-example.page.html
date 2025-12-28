@@ -1,0 +1,118 @@
+<app-form
+  [formGroup]="form"
+  [form]="form"
+  formTitle="EXAMPLE.FORM.TITLE"
+  (submit)="onSubmit()"
+  [errorMessages]="errorMessage"
+  [submitting]="submitting"
+  [charging]="charging"
+  backPath="/client"
+>
+  <div class="mb-3">
+    <div class="row mb-3">
+      <div class="col">
+        <app-input-field
+          id="businessName"
+          label="EXAMPLE.FORM.BUSINESS_NAME"
+          formControlName="businessName"
+          [control]="form.get('businessName')"
+          [submitted]="submitted()"
+          maxlength="100"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="row mb-3">
+      <div class="col">
+        <app-input-field
+          id="fantasyName"
+          label="EXAMPLE.FORM.FANTASY_NAME"
+          formControlName="fantasyName"
+          [control]="form.get('fantasyName')"
+          [submitted]="submitted()"
+        />
+      </div>
+      <div class="col-3">
+        <app-input-field
+          id="cnpj"
+          label="EXAMPLE.FORM.CNPJ"
+          mask="00.000.000/0000-00"
+          maskMessage="EXAMPLE.FORM.CNPJ_MASK"
+          formControlName="cnpj"
+          [control]="form.get('cnpj')"
+          [submitted]="submitted()"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <app-input-field
+          id="responsibleName"
+          label="EXAMPLE.FORM.RESPONSIBLE_NAME"
+          formControlName="responsibleName"
+          [control]="form.get('responsibleName')"
+          [submitted]="submitted()"
+        />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-4">
+        <app-input-field
+          id="responsibleCpf"
+          label="EXAMPLE.FORM.RESPONSIBLE_CPF"
+          mask="000.000.000-00"
+          maskMessage="EXAMPLE.FORM.CPF_MASK"
+          formControlName="responsibleCpf"
+          [control]="form.get('responsibleCpf')"
+          [submitted]="submitted()"
+        />
+      </div>
+      <div class="col-4">
+        <app-input-field
+          id="suframa"
+          label="EXAMPLE.FORM.SUFRAMA"
+          formControlName="suframa"
+          [control]="form.get('suframa')"
+          [submitted]="submitted()"
+          maxlength="9"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <app-input-field
+          id="phone"
+          label="EXAMPLE.FORM.PHONE"
+          mask="(00) 00000-0000"
+          maskMessage="EXAMPLE.FORM.PHONE_MASK"
+          formControlName="phone"
+          [control]="form.get('phone')"
+          [submitted]="submitted()"
+        />
+      </div>
+      <div class="col">
+        <app-input-field
+          id="fax"
+          label="EXAMPLE.FORM.FAX"
+          mask="(00) 00000-0000"
+          maskMessage="EXAMPLE.FORM.PHONE_MASK"
+          formControlName="fax"
+          [control]="form.get('fax')"
+          [submitted]="submitted()"
+        />
+      </div>
+      <div class="col">
+        <app-input-field
+          id="email"
+          label="EXAMPLE.FORM.EMAIL"
+          formControlName="email"
+          [control]="form.get('email')"
+          [submitted]="submitted()"
+        />
+      </div>
+    </div>
+  </div>
+</app-form>

@@ -1,0 +1,11 @@
+@if(form){
+<div [formGroup]="form" class="row mt-2 mb-2">
+    <app-input-field
+            [id]="field"
+            [placeholder]="placeholder"
+            [formControl]="control"
+            [control]="control"
+            [submitted]="signal()"
+    />
+</div>
+}
